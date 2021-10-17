@@ -1,0 +1,59 @@
+<div fxLayout="row wrap"  fxlayoutAlign="start strech" [fxShow]="true" [fxHide]="false" fxFill>
+  <div fxLayout="column wrap" class="userlist-col"  fxFlex="100" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
+    <div fxLayout="row wrap" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
+      <div fxLayout="column wrap" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
+        <div fxLayout="row wrap" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
+          <div fxLayout="column wrap" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
+         <div class="userList-title">
+         User&apos;s List</div>
+          </div>
+
+          <div fxLayout="column wrap" class="add-user" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
+            <div (click)="navigateAdd()" style="cursor:pointer">
+              <div fxLayout="row" fxLayoutAlign="center center">
+                <mat-icon aria-hidden="false">add</mat-icon> <span>Add User</span>
+              </div>
+
+            </div>
+             </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div fxLayout="row wrap" style="padding-top:1em" fxLayoutGap="20px" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
+      <div fxLayout="column wrap" fxFlex="19" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
+        <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+          <input matInput [(ngModel)]="name" placeholder="Search by username" (keyup.enter)= "search()" [required]="false">
+        </mat-form-field>
+      </div>
+
+
+    <div fxLayout="column wrap" fxFlex="19" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+      <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+        <input matInput [(ngModel)]="email" placeholder="Search by email address" (keyup.enter)= "search()" [required]="false">
+
+      </mat-form-field>
+    </div>
+
+
+    <div fxLayout="column wrap" fxFlex="19" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+      <div style="cursor:pointer;">
+        <!-- <mat-form-field appearance="outline" class="width100">
+          <mat-label>Status</mat-label>
+          <mat-select [(ngModel)]="dp3Selection">
+            <mat-option *ngFor="let option of dp3" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field> -->
+      </div>
+    </div>
+
+
+
+  </div>
+
+</div>
+</div>
+

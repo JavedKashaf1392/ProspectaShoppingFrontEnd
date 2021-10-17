@@ -1,0 +1,46 @@
+<div fxLayout="row wrap" class="width100" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
+  <div fxLayout="column wrap" class="width100" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
+    <div fxLayout="row wrap" style="background: #E5E5E5;" class="width100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" fxFill>
+      <div fxLayout="column wrap" class="main-col-p width100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+        <div fxLayout="row wrap" style="padding-bottom: 2em;" fxLayoutAlign="space-between center" [fxShow]="true" [fxHide]="false">
+        <div fxLayout="column wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" (click)="onBack()"><img src="assets/Web/arrow-left.png">
+          <div fxLayout="column wrap" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
+            <div style="font-style: normal; font-weight: 600; font-size: 20px; line-height: 26px; display: flex; align-items: center; letter-spacing: 0.2px; color: #3D424E;">
+            Create User</div>
+          </div>
+        </div>
+
+
+
+        <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+          <div fxLayout="row wrap" fxLayoutGap="1.5em" fxLayoutAlign="start stretch">
+            <div fxLayout="column wrap" class="pointer cancel-btn" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false" (click)="onCancel()">
+               <div>
+                 Cancel
+               </div>
+            </div>
+
+            <div fxLayout="column wrap" class="pointer add-btn" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false" (click)="saveUser()">
+              <div fxLayoutAlign="center center">
+                Add User
+              </div>
+           </div>
+          </div>
+        </div>
+
+
+
+        </div>
+
+
+
+      </div>
+
+
+
+
+
+      
+    </div>
+  </div>
+</div>
