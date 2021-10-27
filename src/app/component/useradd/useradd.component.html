@@ -29,6 +29,172 @@
         </div>
 
 
+        <!-- <----main card started---->
+
+          <div fxLayout="row wrap" style="margin-top: 20px;" class="width100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+            <div fxLayout="column wrap" class="main-card" fxFlex="100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                <div class="card-header">
+                  Basic Information
+                </div>
+                <div fxLayout="column wrap" style="width: 89%; height: 1em; margin-left: 1em;border-bottom: 1px dashed #CACCCF;" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
+                </div>
+              </div>
+
+              <div fxLayout="row wrap" style="width: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                <div fxLayout="column wrap" style="width: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                  <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+
+                    <div fxLayout="column wrap" fxFlex="30" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                    <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;always&apos;" [hideRequiredMarker]="false">
+                      <input matInput [(ngModel)]="email" style="color: #000000;" placeholder="Type here" [required]="true"  >
+                      <mat-label>Email Address</mat-label>
+                    </mat-form-field>
+                    </div>
+
+                    <div fxLayout="column wrap" style="width:150px;" fxLayoutAlign="center stretch" [fxShow]="true" [fxHide]="false">
+                      <mat-form-field style="width:150px;" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;always&apos;" [hideRequiredMarker]="false">
+                        <input matInput placeholder="@ingredion.com" value="@ingredion.com" [required]="true" readonly="true" [disabled]="false">
+                      </mat-form-field>
+                    </div>
+                    <div (click)="onFetch()" class="pointer fetch">
+                      <div fxLayout="row" fxLayoutAlign="center center" style="width:100%;">
+                        <span>Fetch</span> <img src="assets/Web/arrow-right.png">
+                      </div>
+                    </div>
+                    </div>
+
+
+
+
+
+
+
+                 <div fxLayout="row wrap" style="width: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                  <div fxLayout="column wrap" fxFlex="50" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                    <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;always&apos;" [hideRequiredMarker]="false">
+                      <input matInput [(ngModel)]="userId" style="color: #000000;" placeholder="" [required]="true"  >
+                      <mat-label>User Id</mat-label>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div fxLayout="row wrap" style="width: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                  <div fxLayout="column wrap" fxFlex="50" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                    <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;always&apos;" [hideRequiredMarker]="false">
+                      <input matInput [(ngModel)]="firstName" style="color: #000000;" placeholder="" [required]="true"  >
+                      <mat-label>first Name</mat-label>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+
+
+                <div fxLayout="row wrap" style="width: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                  <div fxLayout="column wrap" fxFlex="50" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                    <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;always&apos;" [hideRequiredMarker]="false">
+                      <input matInput [(ngModel)]="lastName" style="color: #000000;" placeholder="" [required]="true"  >
+                      <mat-label>Last Name</mat-label>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div fxLayout="row wrap" style="width: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                  <div fxLayout="column wrap" fxFlex="50" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                    <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;always&apos;" [hideRequiredMarker]="false">
+                      <input matInput [(ngModel)]="phoneNumber" style="color: #000000;" placeholder="" [required]="true"  >
+                      <mat-label>Phone Number</mat-label>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+
+                <div fxLayout="row wrap" style="width: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                  <div fxLayout="column wrap" fxFlex="50" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                    <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;always&apos;" [hideRequiredMarker]="false">
+                      <input matInput [(ngModel)]="password" style="color: #000000;" placeholder="" [required]="true"  >
+                      <mat-label>Password</mat-label>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+
+
+                <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                  <div class="card-header">
+                    Account Security
+                  </div>
+                  <div fxLayout="column wrap" style="width: 89%; height: 1em; margin-left: 1em;border-bottom: 1px dashed #CACCCF;" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
+                  </div>
+                </div>
+
+
+                <div fxLayout="row wrap" style="width: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                  <div fxLayout="column wrap" fxFlex="50" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                    <mat-form-field appearance="outline" class="width100">
+
+                      <mat-select placeholder="Select Role" (selectionChange)="onRoleSelected($event.value)" [(ngModel)]="selectedRole">
+                        <mat-option *ngFor="let role of roleList" [value]="role.roleId">
+                          {{role.roleName}}
+                        </mat-option>
+                      </mat-select>
+                      <mat-label>Role</mat-label>
+                    </mat-form-field>
+                    </div>
+                </div>
+
+                <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                  <div class="card-header">
+                    Account Options
+                  </div>
+                  <div fxLayout="column wrap" style="width: 89%; height: 1em; margin-left: 1em;border-bottom: 1px dashed #CACCCF;" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
+                  </div>
+                </div>
+                <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                  <div>
+
+                    <div fxLayout="row" fxLayoutAlign="center center">
+                      <label class="switch">
+                        <input type="checkbox" [(ngModel)]="accountStatus">
+                        <span class="slider round"></span>
+                      </label>
+                      <span class="toogleText">Account enabled</span>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                  <div>
+
+                    <div fxLayout="row" fxLayoutAlign="center center">
+                      <label class="switch">
+                        <input type="checkbox" [(ngModel)]="accountStatus">
+                        <span class="slider round"></span>
+                      </label>
+                      <span class="toogleText">Account enabled</span>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+
+
+
+            </div>
+
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+
+          </div>
+
+
 
         </div>
 
@@ -40,7 +206,3 @@
 
 
 
-      
-    </div>
-  </div>
-</div>

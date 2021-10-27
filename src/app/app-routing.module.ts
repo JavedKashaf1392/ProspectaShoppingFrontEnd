@@ -14,6 +14,7 @@ const routes: Routes = [
   {path:'home',component:HomeComponent,children :[ {path: 'userlist', component: UserlistComponent},
   {path: 'useredit', component: UsereditComponent},
   {path:'useradd',component:UseraddComponent},
+  {path:'useradd/:userId',component:UseraddComponent},
 ]},
 
 {path: '', redirectTo: '/login', pathMatch: 'full'},

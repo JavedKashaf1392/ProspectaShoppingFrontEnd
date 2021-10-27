@@ -9,23 +9,30 @@
       </div>
 
 
-      <div fxLayout="row wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" (click)="activeLink(&apos;userlist&apos;)" [ngClass]="{&apos;active-side-navlist&apos;:genService.activeTab === &apos;userlist&apos;}">
-        <div fxLayout="column wrap" fxFlex="{{expandNav ? 100 : 12}}" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false"><img src="../../../assets/Web/dashboard.png" class="dash-icons"></div>
-        <div fxLayout="column wrap" class="side-nav-label-name" fxFlex="76" fxLayoutAlign="center start" [fxShow]="true" [fxHide]="expandNav"><span >
-                user list</span></div>
+      <!-- <div fxLayout="column wrap" style="height: 100%; overflow-y: auto; overflow-x: hidden;" class="doNotPrint side-nav-content" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+        <div fxLayout="row wrap"   class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" >
+          <div fxLayout="column wrap"  style="padding:1em;padding-top:1.5em;" class="side-nav-label-name" fxLayoutAlign="center start" [fxShow]="true"><span style="height: 100%;">
+                <app-sidenav *ngFor="let item of navItems" [item]="item" class="navItems"></app-sidenav></span></div>
+        </div>
+      </div> -->
+
+
+
+
+
+
+
+      <div fxLayout="row wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+        <div fxLayout="column wrap" fxFlex="{{expandNav ? 100 : 12}}" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false"></div>
+        <div fxLayout="column wrap" class="side-nav-label-name" fxFlex="76" fxLayoutAlign="center start" [fxShow]="true" [fxHide]="expandNav">
+         <span><app-sidenav *ngFor="let item of navItems" [item]="item" class="navItems"></app-sidenav></span></div>
       </div>
 
-      <div fxLayout="row wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" (click)="activeLink(&apos;useredit&apos;)" [ngClass]="{&apos;active-side-navlist&apos;:genService.activeTab === &apos;useredit&apos;}" >
-        <div fxLayout="column wrap" fxFlex="{{expandNav ? 100 : 12}}" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false"><img src="../../../assets/Web/dashboard.png" class="dash-icons"></div>
-        <div fxLayout="column wrap" class="side-nav-label-name" fxFlex="76" fxLayoutAlign="center start" [fxShow]="true" [fxHide]="expandNav"><span >
-              Product Details</span></div>
-      </div>
-
-      <div fxLayout="row wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" (click)="activeLink(&apos;useradd&apos;)" [ngClass]="{&apos;active-side-navlist&apos;:genService.activeTab === &apos;useradd&apos;}" >
+      <!-- <div fxLayout="row wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" (click)="activeLink(&apos;useradd&apos;)" [ngClass]="{&apos;active-side-navlist&apos;:genService.activeTab === &apos;useradd&apos;}" >
         <div fxLayout="column wrap" fxFlex="{{expandNav ? 100 : 12}}" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false"><img src="../../../assets/Web/dashboard.png" class="dash-icons"></div>
         <div fxLayout="column wrap" class="side-nav-label-name" fxFlex="76" fxLayoutAlign="center start" [fxShow]="true" [fxHide]="expandNav"><span >
               Category Details</span></div>
-      </div>
+      </div> -->
 
     </div>
   </div>

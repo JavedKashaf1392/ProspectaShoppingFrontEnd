@@ -1,0 +1,23 @@
+<div>
+  <a mat-list-item (click)="onItemSelected(item)"  [ngClass]="getClass()" style="padding-bottom:1em;width: 100%;">
+    <span><mat-icon style="font-size: 18px;">{{item.iconName}}</mat-icon></span>
+    <span>{{item.displayName}}</span>
+
+    <!-- <span fxFlex *ngFor="let child of item.children">
+      {{child.displayName}}
+
+
+    </span> -->
+
+
+    <span fxFlex *ngIf="item.children &amp;&amp; item.children.length">
+    <span fxFlex></span>
+    <mat-icon [@indicatorRotate]="expanded ? 'expanded': 'collapsed'">expand_more
+    </mat-icon>
+    </span>
+  </a>
+  <div *ngIf="expanded">
+    <app-sidenav *ngFor="let child of item.children" [item]="child" [depth]="depth+1" class="navSubItems">
+    </app-sidenav>
+  </div>
+</div>
