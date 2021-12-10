@@ -1,0 +1,81 @@
+<div class="container">
+
+
+
+  <h3 style="color: green;">Add Product</h3>
+  <form action="#" (ngSubmit)="saveProduct()" method="Post">
+
+      <div class="row mt-3">
+          <div class="col-2">Product Name</div>
+          <div class="col-4">
+              <input type="text" [(ngModel)]="product.productName" name="productName" id="productName" class="form-control" />
+          </div>
+      </div>
+
+
+
+      <div class="row mt-2">
+          <div class="col-2">Product Price</div>
+          <div class="col-4">
+              <input type="text" [(ngModel)]="product.productPrice" name="productPrice" id="productPrice" class="form-control" />
+          </div>
+      </div>
+
+
+      <div class="row mt-2">
+          <div class="col-2">Product Qty</div>
+          <div class="col-4">
+              <input type="text" [(ngModel)]="product.productQyt" name="productQyt" id="productQyt" class="form-control" />
+          </div>
+      </div>
+
+      <div class="row mt-2">
+          <div class="col-2">Product Discount</div>
+          <div class="col-4">
+              <input type="text" [(ngModel)]="product.discount" name="discount" id="discount" class="form-control" />
+          </div>
+      </div>
+
+      <div class="row mt-2">
+          <div class="col-2">Product description</div>
+          <div class="col-4">
+              <input type="text" [(ngModel)]="product.description" name="description" id="description" class="form-control" />
+          </div>
+      </div>
+
+
+
+
+      <div class="row mt-2">
+          <div class="col-2">Final Price</div>
+          <div class="col-4">
+              <input type="text" [(ngModel)]="product.finalPrice" name="finalPrice" id="finalPrice" class="form-control" />
+          </div>
+      </div>
+
+
+      <div class="row mt-2">
+          <div class="col-2">Product Size</div>
+          <div class="col-4">
+              <input type="text" [(ngModel)]="product.size" name="size" id="size" class="form-control" />
+          </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="col-2">Product Photo</div>
+        <div class="col-4">
+            <input type="text" [(ngModel)]="product.photo" name="photo" id="photo" class="form-control" />
+        </div>
+    </div>
+
+
+      <div class="row mt-3">
+          <div class="col-2"></div>
+          <div class="col-4">
+              <input type="submit" value="register" class="btn btn-success">
+          </div>
+      </div>
+
+  </form>
+  {{message}}
+  </div>

@@ -1,0 +1,102 @@
+
+
+.check{
+color: rgb(30, 204, 103);
+}
+
+.check1{
+  color: rgb(141, 145, 153);
+  }
+.login{
+  color: rgb(56, 65, 74);
+  font-size: 14px;
+  font-weight: 600;
+
+}
+
+.login1{
+  color: rgb(98, 107, 127);
+  font-size: 14px;
+}
+
+.marginrow{
+  margin-right: 0em !important;
+}
+
+.address{
+  border: 1px solid rgb(141, 145, 153);;
+  width: 260px;
+  min-height: 250px;
+  background-color: rgb(255, 255, 255);
+  padding: 8px;
+  border-color: rgb(141, 145, 153);
+  margin: 10px;
+  border-radius: 4px;
+  border-width: 1px;
+  cursor: pointer;
+  opacity: 1;
+  transition-duration: 0.25s;
+}
+.chekz{
+  margin-right: 5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  border-color: rgb(184, 190, 200);
+}
+
+.chekztext{
+  font-size: 14px;
+}
+.pay{
+  color: rgb(98, 107, 127);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.taxtext{
+  margin-top: 3px;
+  color: rgb(98, 107, 127);
+  font-size: 12px;
+}
+.paymoney{
+  font-size: 20px;
+  width: 140px;
+  color: rgb(250, 128, 56);
+  font-weight: bold;
+}
+
+.backsize{
+  height: 46px;
+}
+.backbutton{
+  height: 40px;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin: 2px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(57, 66, 78);
+}
+
+.paytbtn{
+  height: 40px;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin: 2px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(57, 66, 78);
+  font-size: 16px;
+  padding-left: 12px;
+  padding-right: 12px;
+  background-color:rgb(112, 8, 149);
+  color: white;
+
+}
+.paycolor{
+
+  // rgb(63, 0, 102))
+}

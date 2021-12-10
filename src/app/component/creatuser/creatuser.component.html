@@ -1,0 +1,57 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>User Login</mat-card-title>
+    </mat-card-header>
+
+    <form [formGroup]="RegisterForm" class="example-form">
+      <mat-card-content>
+
+        <mat-form-field class="example-full-width">
+          <mat-icon matPrefix>person_outline</mat-icon>
+          <input matInput  placeholder="firstName" formControlName="firstName">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-icon matPrefix>person_outline</mat-icon>
+          <input matInput  placeholder="lastName" formControlName="lastName">
+        </mat-form-field>
+
+
+        <mat-form-field class="example-full-width">
+          <mat-icon matPrefix>email</mat-icon>
+          <input matInput  placeholder="email" formControlName="email">
+        </mat-form-field>
+
+
+        <mat-form-field class="example-full-width">
+          <mat-icon matPrefix>lock_outline</mat-icon>
+          <input matInput placeholder="Password" type="password" formControlName="password">
+        </mat-form-field>
+
+
+        <mat-form-field class="example-full-width">
+          <mat-icon matPrefix>add_photo_alternate</mat-icon>
+          <input matInput  placeholder="photo" formControlName="photos">
+        </mat-form-field>
+
+
+          <mat-form-field class="example-full-width">
+            <mat-icon matPrefix>manage_accounts</mat-icon>
+          <mat-select formControlName="roles" placeholder="Roles" multiple>
+            <mat-option  *ngFor="let role of roles1" [value]="role">{{role.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </mat-card-content>
+      <button mat-stroked-button color="accent" (click)="RegisterLogin()" class="btn-block">Log in</button>
+    </form>
+    <div class="mt-4">
+      <div class="d-flex justify-content-center links" style="font-size: 17px;font-weight: 400;">
+        I have already an account <a routerLink="/login" class="ml-2" style="color: #2C3E50;">Log in</a>
+      </div>
+    </div>
+  </mat-card>
+</div>
+

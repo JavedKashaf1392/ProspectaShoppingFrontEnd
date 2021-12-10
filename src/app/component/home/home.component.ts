@@ -1,6 +1,7 @@
 
 import { Component, HostBinding, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 import { GenericService } from 'src/app/services/generic/generic.service';
 // import { NavItem } from './nav-item';
 
@@ -33,7 +34,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     public genService:GenericService,
-    private router:Router
+    private router:Router,
+    private authentication:AuthenticationService
   ) { }
 
   ngOnInit(): void {
@@ -50,8 +52,8 @@ export class HomeComponent implements OnInit {
   }
 
   logout(){
-    // this.genService.activeTab = data;
-    // this.router.navigate(["/home/" + data]);
+    this.authentication.logOut();
+    this.router.navigate(['/login'])
   }
 
   navItems: NavItem[] = [
@@ -62,43 +64,39 @@ export class HomeComponent implements OnInit {
       children: [
         {
           displayName: 'Edit User',
-          iconName: 'search',
+          iconName: 'edit',
           route: 'useredit',
         },
         {
           displayName: 'useradd',
-          iconName: 'search',
+          iconName: 'person_add',
           route: 'useradd',
 
         },
         {
           displayName: 'User list',
-          iconName: 'search',
+          iconName: 'list',
           route: 'userlist'
         }
       ]
     },
     {
-      displayName: 'Disney',
-      iconName: 'search',
-      route: 'disney',
+      displayName: 'Product',
+      iconName: 'add_business',
+      route: '',
       children: [
         {
-          displayName: 'disney1',
-          iconName: 'search',
-          route: 'disney/speakers'
+          displayName: 'add Product',
+          iconName: 'home_repair_service',
+          route: 'addproduct'
 
         },
         {
-          displayName: 'disney hotstar',
-          iconName: 'search',
-          route: 'disney/sessions'
+          displayName: 'list product',
+          iconName: 'production_quantity_limits',
+          route: 'listproduct'
         },
-        {
-          displayName: 'disney feedback',
-          iconName: 'search',
-          route: 'disney/feedback'
-        }
+
       ]
     },
   ];

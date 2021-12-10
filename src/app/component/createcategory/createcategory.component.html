@@ -1,0 +1,54 @@
+
+
+
+
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Register Category</mat-card-title>
+    </mat-card-header>
+
+    <form [formGroup]="CategoryForm" class="example-form">
+      <mat-card-content>
+
+<!--
+        <mat-form-field [hidden]="true">
+          <input matInput  placeholder="id" formControlName="id">
+        </mat-form-field> -->
+
+
+
+
+        <mat-form-field class="example-full-width">
+          <mat-icon matPrefix>category</mat-icon>
+          <input matInput  placeholder="Category Name" formControlName="name">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-icon matPrefix>content_copy</mat-icon>
+          <input matInput  placeholder="Alias Name" formControlName="alias">
+        </mat-form-field>
+
+
+        <mat-form-field class="example-full-width">
+          <mat-icon matPrefix><span class="material-icons-outlined">
+            image
+            </span></mat-icon>
+          <input matInput  placeholder="image" formControlName="image">
+        </mat-form-field>
+
+
+          <mat-form-field class="example-full-width">
+            <mat-icon matPrefix>manage_accounts</mat-icon>
+          <mat-select formControlName="parent" placeholder="parent">
+            <mat-option [value]="">[No-Parent]</mat-option>
+            <mat-option  *ngFor="let category of  categorylist" [value]="category.id">{{category.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </mat-card-content>
+      <button mat-stroked-button color="accent" (click)="saveCategory()" class="btn-block">Register</button>
+    </form>
+  </mat-card>
+</div>

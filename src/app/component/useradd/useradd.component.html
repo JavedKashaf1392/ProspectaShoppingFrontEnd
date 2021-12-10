@@ -22,7 +22,7 @@
 
             <div fxLayout="column wrap" class="pointer add-btn" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false" (click)="saveUser()">
               <div fxLayoutAlign="center center">
-                Add User
+                <div>{{id ? &apos;Update User&apos; : &apos;Add User&apos;}}</div>
               </div>
            </div>
           </div>
@@ -54,7 +54,7 @@
 
                     <div fxLayout="column wrap" style="width:150px;" fxLayoutAlign="center stretch" [fxShow]="true" [fxHide]="false">
                       <mat-form-field style="width:150px;" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;always&apos;" [hideRequiredMarker]="false">
-                        <input matInput placeholder="@ingredion.com" value="@ingredion.com" [required]="true" readonly="true" [disabled]="false">
+                        <input matInput placeholder="@gmail.com" value="@gmail.com" [required]="true" readonly="true" [disabled]="false">
                       </mat-form-field>
                     </div>
                     <div (click)="onFetch()" class="pointer fetch">
@@ -64,20 +64,6 @@
                     </div>
                     </div>
 
-
-
-
-
-
-
-                 <div fxLayout="row wrap" style="width: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
-                  <div fxLayout="column wrap" fxFlex="50" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
-                    <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;always&apos;" [hideRequiredMarker]="false">
-                      <input matInput [(ngModel)]="userId" style="color: #000000;" placeholder="" [required]="true"  >
-                      <mat-label>User Id</mat-label>
-                    </mat-form-field>
-                  </div>
-                </div>
 
                 <div fxLayout="row wrap" style="width: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
                   <div fxLayout="column wrap" fxFlex="50" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
@@ -120,6 +106,28 @@
 
 
 
+                <div fxLayout="row wrap" style="width: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                  <div fxLayout="column wrap" fxFlex="50" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                    <input type="file" placeholder="" name="file" (change)='photoUpload($event)' #file>
+                  </div>
+                </div>
+
+                <div style="display: flex;" *ngIf="imageExist==true" class="col-2">
+                  <div>
+                    <img class="prfImage"  [src]="imageshow"  #imageSize />
+                  </div>
+                </div>
+
+
+
+
+
+
+                <!-- <div>
+                  <input type="file" hidden placeholder="" name="file" (change)='photoUpload($event)' #file>
+                  <img style="width:61px;height:64px;" src="../../assets/images/picfolder1.png" alt="logo"/>
+                 </div> -->
+
                 <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
                   <div class="card-header">
                     Account Security
@@ -134,8 +142,8 @@
                     <mat-form-field appearance="outline" class="width100">
 
                       <mat-select placeholder="Select Role" (selectionChange)="onRoleSelected($event.value)" [(ngModel)]="selectedRole">
-                        <mat-option *ngFor="let role of roleList" [value]="role.roleId">
-                          {{role.roleName}}
+                        <mat-option *ngFor="let role of roleList" [value]="role.id">
+                          {{role.name}}
                         </mat-option>
                       </mat-select>
                       <mat-label>Role</mat-label>
@@ -155,37 +163,14 @@
 
                     <div fxLayout="row" fxLayoutAlign="center center">
                       <label class="switch">
-                        <input type="checkbox" [(ngModel)]="accountStatus">
+                        <input type="checkbox" [(ngModel)]="enabled">
                         <span class="slider round"></span>
                       </label>
                       <span class="toogleText">Account enabled</span>
                     </div>
                   </div>
                 </div>
-
-
-                <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
-                  <div>
-
-                    <div fxLayout="row" fxLayoutAlign="center center">
-                      <label class="switch">
-                        <input type="checkbox" [(ngModel)]="accountStatus">
-                        <span class="slider round"></span>
-                      </label>
-                      <span class="toogleText">Account enabled</span>
-                    </div>
-                  </div>
-                </div>
-
-
-
-
-
-
-
-
             </div>
-
             </div>
             </div>
             </div>

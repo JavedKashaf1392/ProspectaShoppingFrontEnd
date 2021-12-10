@@ -1,0 +1,31 @@
+<section class="product">
+  <div class="container">
+    <div class="row" *ngFor="let tempProduct of product">
+      <div class="col-md-3">
+        <div class="box">
+
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="box">
+            <a routerLink="/products/{{ tempProduct.id }}">
+                <img src="../../assets/{{tempProduct.photo }}" class="img-responsive">
+            </a>
+
+            <a routerLink="/products/{{ tempProduct.id }}">
+                <h1>{{ tempProduct.productName }}</h1>
+            </a>
+
+            <div class="price">{{ tempProduct.productPrice | currency:'USD' }}</div>
+            <!-- <button (click)="addToCart(tempProduct)" class="btn btn-primary btn-sm">Add to cart</button> -->
+              <mat-icon color="primary" class="pointer" (click)="addToCart(tempProduct)">shopping_cart</mat-icon>
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

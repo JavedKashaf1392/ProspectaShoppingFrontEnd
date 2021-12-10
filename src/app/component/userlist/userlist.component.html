@@ -91,10 +91,14 @@
 
       <div class="mat-elevation-z8">
          <table cdkDropList #table mat-table [dataSource]="dataSource" [cdkDropListData]="dataSource?.data" (cdkDropListDropped)="onListDrop($event)" matSort class="width100">
-          <ng-container matColumnDef="userId">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> USER ID </th>
-            <td mat-cell *matCellDef="let row" class="table-r-name pointer" (click)="navigate(row)"> {{row.userId}} </td>
+
+
+
+          <ng-container matColumnDef="photos">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> photos </th>
+            <td mat-cell *matCellDef="let row" class="table-r-email pointer" (ng)="getImage(row.photos)"> <img  [src]="" width="100px" height="100px" /> </td>
           </ng-container>
+
 
           <ng-container matColumnDef="email">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL ADDRESS </th>
@@ -117,14 +121,28 @@
             <td mat-cell *matCellDef="let row" class="table-r-email pointer" (click)="navigate(row)"> {{row.phoneNumber}} </td>
           </ng-container>
 
-          <ng-container matColumnDef="role">
+          <ng-container matColumnDef="roles">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> ROLE </th>
-            <td mat-cell *matCellDef="let row" class="table-r-email pointer" (click)="navigate(row)"> {{row?.accountSecurity?.roleName}} </td>
+            <!-- <td mat-cell *matCellDef="let row let i = index;" class="table-r-email pointer" (click)="navigate(row)"> {{row?.roles[i]?.name}} </td> -->
+            <td mat-cell *matCellDef="let element" class="table-r-email pointer" (click)="navigate(row)">
+              <div>
+                <ng-container  *ngFor="let item of element?.roles">
+                  <div >
+                      <span>{{item?.name}}</span>
+                  </div>
+                </ng-container>
+              </div>
+            </td>
           </ng-container>
 
-          <ng-container matColumnDef="status">
+
+
+
+
+
+          <ng-container matColumnDef="enabled">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> STATUS </th>
-            <td mat-cell *matCellDef="let row"> <span [ngClass]="{&apos;active&apos;:row.accountStatus == true, &apos;in-active&apos;:row.accountStatus == false}">{{row.accountStatus ? &quot;Active&quot; :  &quot;Inactive&quot;}}</span> </td>
+            <td mat-cell *matCellDef="let row"> <span [ngClass]="{&apos;active&apos;:row.enabled == true, &apos;in-active&apos;:row.enabled == false}">{{row.enabled ? &quot;Active&quot; :  &quot;Inactive&quot;}}</span> </td>
           </ng-container>
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns" class="th-color table-text"></tr>
@@ -147,4 +165,12 @@
 </div>
 </div>
 
+<div>
+  <!-- <img   [src]="imageshow" width="100px" height="100px"  #imageSize /> -->
+</div>
 
+
+<div *ngIf="imageUrls.length > 0 ">
+  <div *ngFor="let Urls of imageUrls" style="display: flex;">
+    <img  [src]="Urls" width="100px" height="100px" />
+  </div>

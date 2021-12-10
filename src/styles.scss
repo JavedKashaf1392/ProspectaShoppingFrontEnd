@@ -65,7 +65,6 @@ $font-family: "Poppins", sans-serif;
 
 .pointer {
   cursor: pointer !important;
-  height: 34px;
 }
 
 .active-side-navlist {
@@ -442,9 +441,42 @@ input:checked + .slider:before {
 .formfileld .mat-form-field-appearance-outline .mat-form-field-infix {
   padding: 0.7em 0 0.7em 0;
 }
-// .cdk-drag-placeholder{
-//   transform: none !important;
-// }
+
+.success_btn {
+  background-color: #6cb33f;
+  color: white;
+  border-radius: 2px !important;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.custom .mat-dialog-container {
+
+  overflow: hidden;
+  border-width: 0px;
+  border-style: solid !important;
+   padding: 0px !important;
+  border-radius: 0px !important;
+  background-color: rgb(255, 255, 255);
+  animation-duration: 0.4s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
+  position: relative !important;
+}
+
+.mat-dialog-content {
+  max-height: 100% !important;
+}
+
+.close1 .material-icons{
+  font-size: 30px !important;
+}
+
+.backdropBackground {
+  background-color: rgb(55, 58, 71) !important;
+  opacity: 0.9 !important;
+}
+
 
 
 

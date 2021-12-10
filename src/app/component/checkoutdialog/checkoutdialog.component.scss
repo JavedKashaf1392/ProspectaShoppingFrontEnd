@@ -1,0 +1,83 @@
+.main{
+  border-width: 0px;
+  border-style: solid;
+  padding: 0px;
+  background-color: rgb(255, 255, 255);
+  animation-duration: 0.4s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
+}
+
+.shipping{
+  color: rgb(56, 65, 74);
+  font-size: 18px;
+  font-weight: 600;
+  padding: 17px;
+}
+
+.close{
+  color: rgb(98, 107, 127);
+  padding: 17px;
+}
+.modalmargin{
+  margin: 11px 10px 0px 10px;
+}
+
+::ng-deep mat-form-field.mat-form-field-appearance-outline .mat-form-field-wrapper {
+  margin: 0;
+}
+mat-form-field {
+  font-size: 16px;
+}
+
+::ng-deep .mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+::ng-deep .mat-form-field-subscript-wrapper {
+  display: none;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+  padding: 0em;
+}
+
+::ng-deep mat-form-field.mat-form-field-appearance-outline .mat-form-field-flex {
+  padding: 0 0.75em 5px 0.75em !important;
+  margin-top: 0em;
+}
+.name{
+      font-size: 14px;
+      font-weight: bold;
+      color: rgb(93, 100, 110);
+      margin-bottom: 3px;
+}
+
+.sbmButton{
+  height: 40px;
+  width: 100%;
+  background-color: navy;
+  margin: 5px;
+  padding: 2px;
+  border-radius: 4px;
+  border-color: white;
+
+}
+
+.submit{
+  font-weight: 600;
+  font-size: 16px;
+  padding-left: 12px;
+  padding-right: 12px;
+  color: white;
+  border-color: rgb(255, 255, 255) !important;
+
+}
+
+
+
+
+
+
+
+
+

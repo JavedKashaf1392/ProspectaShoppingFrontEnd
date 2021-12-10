@@ -7,6 +7,9 @@ import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { BackendService } from 'src/app/services/backend/backend.service';
 import  clonedeep from 'lodash.clonedeep';
+import { DomSanitizer } from '@angular/platform-browser';
+import { GenericService } from 'src/app/services/generic/generic.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-userlist',
@@ -20,13 +23,13 @@ export class UserlistComponent implements OnInit {
   @ViewChild('table') table: MatTable<any>
 
   displayedColumns: string[] = [
-    "userId",
+    "photos",
     "email",
     "firstName",
     "lastName",
     "phoneNumber",
-    "role",
-    "status"
+    "roles",
+    "enabled"
   ];
 
   dataSource;
@@ -41,11 +44,17 @@ export class UserlistComponent implements OnInit {
   phoneNumber: any;
   dataJson:any;
   firstName: any;
+  photos1: string="jonathon-dorofy-Qne1wCsWfUA-unsplash.jpg";
+  imageshow: any;
+  imageUrls: any[];
+  photoPath:any = environment.properties.path;
 
   constructor(
     private router: Router,
     private backEnd:BackendService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    public domSanitizer: DomSanitizer,
+    public generic:GenericService,
 
     )
     { }
@@ -53,25 +62,90 @@ export class UserlistComponent implements OnInit {
   ngOnInit(): void {
     this.getAllData();
     this.setPagesize();
+    this.initializePhotoList();
+    this.imageUrls = [0];
+    this.getImage(this.photos1);
+    // console.log("envirment",this.photoUrl);
+
   }
+
+
+  async initializePhotoList() {
+    let list = await this.backEnd.getAllphotos().toPromise();
+    this.generic.imageList = list;
+
+
+    this.getOnePhoto();
+  }
+
+
+
+
+   //getting the templates
+   getOnePhoto() {
+    this.imageUrls = [];
+    if (this.generic.imageList) {
+      for (let index = 0; index < this.generic.imageList.length; index++) {
+
+
+        this.backEnd.getImage(this.generic.imageList[index].name).subscribe((res) => {
+
+
+          let photo:any={}
+          // photo[this.generic.imageList[index].name] = res;
+          let objectURL = URL.createObjectURL(res);
+
+          // console.log("image one list",objectURL);
+          let photoUrl = this.domSanitizer.bypassSecurityTrustUrl(objectURL)
+          this.imageUrls[index] = photoUrl;
+           photo[this.generic.imageList[index].name] = photoUrl;
+          console.log("ImageResponse all",this.imageUrls[index]);
+        })
+      }
+    }
+  }
+
+
 
   async getAllData(){
     await this.backEnd.getUserListData().subscribe((res) => {
-      this.usersData = res["data"];
-      console.log("data",this.usersData);
-      this.dataSource = new MatTableDataSource(this.usersData);
-      this.dataSource.paginator = this.paginator;
-      console.log(this.dataSource);
-      this.dataSource.sort = this.sort;
+      console.log("userlist",res);
+      if(res['success']==true){
+        this.usersData = res["data"];
+
+        // console.log("Response all",res);
+        // console.log("data",this.usersData);
+        this.dataSource = new MatTableDataSource(this.usersData);
+        this.dataSource.paginator = this.paginator;
+        // console.log(this.dataSource);
+        this.dataSource.sort = this.sort;
+      }
+
     });
   }
+
+getImage(image){
+  this.backEnd.getImage(image).subscribe((res) => {
+    if (res) {
+
+
+      let objectURL = URL.createObjectURL(res);
+      console.log("ImageResponse",res);
+      this.imageshow = this.domSanitizer.bypassSecurityTrustUrl(objectURL)
+    }
+
+});
+}
+
+
+
 
   navigateAdd(){
     this.router.navigate(["/home/useradd"])
   }
 
   navigate(data) {
-    this.router.navigate(["home/useradd/" + data.userId]);
+    this.router.navigate(["home/useradd/" + data.id]);
   }
 
   search() {
@@ -85,7 +159,7 @@ export class UserlistComponent implements OnInit {
       };
 
       this.backEnd.search(payload).subscribe((res) => {
-        console.log("return data is here",res);
+        // console.log("return data is here",res);
         this.usersData = res["data"];
         this.dataSource = new MatTableDataSource(this.usersData);
 
@@ -119,9 +193,7 @@ export class UserlistComponent implements OnInit {
 
   onListDrop(event: CdkDragDrop<string[]>) {
     // Swap the elements around
-    console.log(`Moving item from ${event.previousIndex} to index ${event.currentIndex}`)
     moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    console.log(`event.container ${event.container.data}`)
     this.dataSource.data = clonedeep(this.dataSource.data);
   }
 

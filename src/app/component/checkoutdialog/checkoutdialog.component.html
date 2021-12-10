@@ -1,0 +1,424 @@
+
+<div fxLayout="row wrap" class="width100" style="height: 100vh;" class="main"  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+  <div fxLayout="column wrap" class="width100"  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+    <div fxLayout="row wrap" style="background: rgb(255, 255, 255);" class="width100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" fxFill>
+      <div *ngIf="action=='shipping'" fxLayout="column wrap" class="width100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+        <form [formGroup]='checkoutFormGroup'>
+        <mat-dialog-content >
+        <div fxLayout="row wrap" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false" style="height: 66.5px;">
+
+          <div fxLayout="column wrap"  fxFlex="100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+            <div fxLayout="row wrap"  style="height: 65.5px;" fxLayoutGap="1em" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div fxLayout="row wrap" fxFlex="82" class="pointer" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+              <div class="shipping"  fxLayout="row wrap"  fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+                {{name}}
+              </div>
+            </div>
+
+            <div fxLayout="row wrap" fxFlex class="pointer" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+              <div fxLayout="row wrap" class="close1" fxLayoutAlign="start end" [fxShow]="true" [fxHide]="false">
+                <mat-icon class="close" mat-button mat-dialog-close>highlight_off</mat-icon>
+              </div>
+            </div>
+            </div>
+
+        </div>
+
+        </div>
+        <mat-divider></mat-divider>
+
+        <div fxLayout="row wrap" class="modalmargin" style="margin-bottom: 1em;" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+
+          <div fxLayout="column wrap"  fxFlex="100"   fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+            <div fxLayout="row wrap" fxLayoutGap="1em" class="" style="width: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+            <div class="name" fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              Name
+            </div>
+            </div>
+            <div fxLayout="row wrap" fxLayoutGap="1em" class="" style="width: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <mat-form-field appearance="outline" style="width: 100%;" >
+                <input matInput formControlName='Name' placeholder="Name">
+              </mat-form-field>
+            </div>
+            </div>
+
+            <div fxLayout="row wrap"  fxFlex="100" style="width: 100%;margin-top: 1em;" fxLayoutGap="1em" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+
+              <div fxLayout="row wrap" fxLayoutGap="1em"  fxFlex="48" class=""  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                <div fxLayout="row wrap" fxLayoutGap="1em"  class=""  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div class="name" fxLayout="column wrap"   fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                Company Name
+              </div>
+              </div>
+              <div fxLayout="row wrap" fxLayoutGap="1em" class="" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                <mat-form-field appearance="outline" style="width: 100%;" >
+                  <input matInput formControlName='companyName' placeholder="Company Name">
+                </mat-form-field>
+              </div>
+              </div>
+
+
+
+              <div fxLayout="row wrap"  fxFlex="50" style="width: 100%;" fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                <div fxLayout="row wrap"  class="" style="width: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                <div fxLayout="column wrap" fxLayoutGap="1em"   class=""  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div class="name" fxLayout="column wrap"    fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+               Mobile Number
+              </div>
+              </div>
+              <div fxLayout="column wrap" fxLayoutGap="1em" class="" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                <mat-form-field appearance="outline" style="width: 100%;" >
+                  <input matInput formControlName='MobileNumber' placeholder="Mobile Number">
+                </mat-form-field>
+              </div>
+            </div>
+              </div>
+
+            </div>
+
+            <div fxLayout="column wrap"  fxFlex="100" style="width: 100%;margin-top: 1em;"   fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div fxLayout="row wrap" fxLayoutGap="1em" class="" style="width: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div class="name" fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                Door No, Street name
+              </div>
+              </div>
+              <div fxLayout="row wrap" fxLayoutGap="1em" class="" style="width: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                <mat-form-field appearance="outline" style="width: 100%;" >
+                  <input matInput formControlName='door' placeholder="Door No, Street name">
+                </mat-form-field>
+              </div>
+              </div>
+
+
+              <div fxLayout="column wrap"  fxFlex="100" style="width: 100%;margin-top: 1em;"    fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                <div fxLayout="row wrap" fxLayoutGap="1em" class="" style="width: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                <div class="name" fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                  Area Name / Locality Name
+                </div>
+                </div>
+                <div fxLayout="row wrap" fxLayoutGap="1em" class="" style="width: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                  <mat-form-field appearance="outline" style="width: 100%;" >
+                    <input matInput formControlName='area' placeholder="Area Name / Locality Name">
+                  </mat-form-field>
+                </div>
+                </div>
+
+                <div fxLayout="column wrap"  fxFlex="100" style="width: 100%;margin-top: 1em;"    fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                  <div fxLayout="row wrap" fxLayoutGap="1em" class="" style="width: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                  <div class="name" fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                    Landmark Details
+                  </div>
+                  </div>
+                  <div fxLayout="row wrap" fxLayoutGap="1em" class="" style="width: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                    <mat-form-field appearance="outline" style="width: 100%;" >
+                      <input matInput formControlName='landmark' placeholder="Landmark Details">
+                    </mat-form-field>
+                  </div>
+                  </div>
+
+
+                  <div fxLayout="row wrap"  fxFlex="100" style="width: 100%;margin-top: 1em;" fxLayoutGap="1em" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+
+                    <div fxLayout="row wrap" fxLayoutGap="1em"  fxFlex="48" class=""  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                      <div fxLayout="row wrap" fxLayoutGap="1em"  class=""  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                    <div class="name" fxLayout="column wrap"   fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                      City
+                    </div>
+                    </div>
+                    <div fxLayout="row wrap" fxLayoutGap="1em" class="" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                      <mat-form-field appearance="outline" style="width: 100%;" >
+                        <input matInput formControlName='city' placeholder="City">
+                      </mat-form-field>
+                    </div>
+                    </div>
+
+
+
+                    <div fxLayout="row wrap"  fxFlex="50" style="width: 100%;" fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                      <div fxLayout="row wrap"  class="" style="width: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                      <div fxLayout="column wrap" fxLayoutGap="1em"   class=""  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                    <div class="name" fxLayout="column wrap"    fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                     State
+                    </div>
+                    </div>
+                    <div fxLayout="column wrap" fxLayoutGap="1em" class="" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                      <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-select placeholder="select state"  formControlName="state" disableOptionCentering>
+                          <mat-option *ngFor="let state of states;  let indexOfelement=index;" [value]="state">
+                            {{state.name}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                    </div>
+
+                  </div>
+
+                  <div fxLayout="row wrap"  fxFlex="100" style="width: 100%;margin-top: 1em;" fxLayoutGap="1em" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+
+                    <div fxLayout="row wrap" fxLayoutGap="1em"  fxFlex="48" class=""  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                      <div fxLayout="row wrap" fxLayoutGap="1em"  class=""  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                    <div class="name" fxLayout="column wrap"  style="width:100%" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                      Country
+                    </div>
+                    </div>
+                    <div fxLayout="row wrap" fxLayoutGap="1em" style="width:100%" class="" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                    <div fxLayout="column wrap"   fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                      India
+                    </div>
+                    </div>
+                    </div>
+
+
+
+                    <div fxLayout="row wrap"  fxFlex="50" style="width: 100%;" fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                      <div fxLayout="row wrap"  class="" style="width: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                      <div fxLayout="column wrap" fxLayoutGap="1em"   class=""  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                    <div class="name" fxLayout="column wrap"    fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                      Pincode
+                    </div>
+                    </div>
+                    <div fxLayout="column wrap" fxLayoutGap="1em" class="" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                      <mat-form-field appearance="outline" style="width: 100%;" >
+                        <input matInput formControlName='pincode' placeholder="Pincode">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                    </div>
+
+                  </div>
+
+
+
+
+
+
+
+        </div>
+        <mat-divider></mat-divider>
+
+
+
+      </mat-dialog-content>
+    </form>
+      <mat-dialog-actions align="center">
+        <button class="sbmButton" [mat-dialog-close]="true" cdkFocusInitial (click)="save()">
+
+          <div class="submit">
+            Submit
+          </div>
+        </button>
+      </mat-dialog-actions>
+
+        </div>
+
+
+        <!--Billing Address-->
+        <div *ngIf="action=='billing'" fxLayout="column wrap" class="width100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+          <form [formGroup]='checkoutFormGroup'>
+          <mat-dialog-content >
+          <div fxLayout="row wrap" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false" style="height: 66.5px;">
+
+            <div fxLayout="column wrap"  fxFlex="100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div fxLayout="row wrap"  style="height: 65.5px;" fxLayoutGap="1em" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                <div fxLayout="row wrap" fxFlex="82" class="pointer" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+                <div class="shipping"  fxLayout="row wrap"  fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+                  {{name}}
+                </div>
+              </div>
+
+              <div fxLayout="row wrap" fxFlex class="pointer" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+                <div fxLayout="row wrap" class="close1" fxLayoutAlign="start end" [fxShow]="true" [fxHide]="false">
+                  <mat-icon class="close" mat-button mat-dialog-close>highlight_off</mat-icon>
+                </div>
+              </div>
+              </div>
+
+          </div>
+
+          </div>
+          <mat-divider></mat-divider>
+
+          <div fxLayout="row wrap" class="modalmargin" style="margin-bottom: 1em;" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+
+            <div fxLayout="column wrap"  fxFlex="100"   fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div fxLayout="row wrap" fxLayoutGap="1em" class="" style="width: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div class="name" fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                Name
+              </div>
+              </div>
+              <div fxLayout="row wrap" fxLayoutGap="1em" class="" style="width: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                <mat-form-field appearance="outline" style="width: 100%;" >
+                  <input matInput formControlName='Name' placeholder="Name">
+                </mat-form-field>
+              </div>
+              </div>
+
+              <div fxLayout="row wrap"  fxFlex="100" style="width: 100%;margin-top: 1em;" fxLayoutGap="1em" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+
+                <div fxLayout="row wrap" fxLayoutGap="1em"  fxFlex="48" class=""  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                  <div fxLayout="row wrap" fxLayoutGap="1em"  class=""  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                <div class="name" fxLayout="column wrap"   fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                  Company Name
+                </div>
+                </div>
+                <div fxLayout="row wrap" fxLayoutGap="1em" class="" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                  <mat-form-field appearance="outline" style="width: 100%;" >
+                    <input matInput formControlName='companyName' placeholder="Company Name">
+                  </mat-form-field>
+                </div>
+                </div>
+
+
+
+                <div fxLayout="row wrap"  fxFlex="50" style="width: 100%;" fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                  <div fxLayout="row wrap"  class="" style="width: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                  <div fxLayout="column wrap" fxLayoutGap="1em"   class=""  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                <div class="name" fxLayout="column wrap"    fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                 Mobile Number
+                </div>
+                </div>
+                <div fxLayout="column wrap" fxLayoutGap="1em" class="" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                  <mat-form-field appearance="outline" style="width: 100%;" >
+                    <input matInput formControlName='MobileNumber' placeholder="Mobile Number">
+                  </mat-form-field>
+                </div>
+              </div>
+                </div>
+
+              </div>
+
+              <div fxLayout="column wrap"  fxFlex="100" style="width: 100%;margin-top: 1em;"   fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                <div fxLayout="row wrap" fxLayoutGap="1em" class="" style="width: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                <div class="name" fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                  Door No, Street name
+                </div>
+                </div>
+                <div fxLayout="row wrap" fxLayoutGap="1em" class="" style="width: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                  <mat-form-field appearance="outline" style="width: 100%;" >
+                    <input matInput formControlName='door' placeholder="Door No, Street name">
+                  </mat-form-field>
+                </div>
+                </div>
+
+
+                <div fxLayout="column wrap"  fxFlex="100" style="width: 100%;margin-top: 1em;"    fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                  <div fxLayout="row wrap" fxLayoutGap="1em" class="" style="width: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                  <div class="name" fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                    Area Name / Locality Name
+                  </div>
+                  </div>
+                  <div fxLayout="row wrap" fxLayoutGap="1em" class="" style="width: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                    <mat-form-field appearance="outline" style="width: 100%;" >
+                      <input matInput formControlName='area' placeholder="Area Name / Locality Name">
+                    </mat-form-field>
+                  </div>
+                  </div>
+
+                  <div fxLayout="column wrap"  fxFlex="100" style="width: 100%;margin-top: 1em;"    fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                    <div fxLayout="row wrap" fxLayoutGap="1em" class="" style="width: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                    <div class="name" fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                      Landmark Details
+                    </div>
+                    </div>
+                    <div fxLayout="row wrap" fxLayoutGap="1em" class="" style="width: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                      <mat-form-field appearance="outline" style="width: 100%;" >
+                        <input matInput formControlName='landmark' placeholder="Landmark Details">
+                      </mat-form-field>
+                    </div>
+                    </div>
+
+
+                    <div fxLayout="row wrap"  fxFlex="100" style="width: 100%;margin-top: 1em;" fxLayoutGap="1em" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+
+                      <div fxLayout="row wrap" fxLayoutGap="1em"  fxFlex="48" class=""  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                        <div fxLayout="row wrap" fxLayoutGap="1em"  class=""  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                      <div class="name" fxLayout="column wrap"   fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                        City
+                      </div>
+                      </div>
+                      <div fxLayout="row wrap" fxLayoutGap="1em" class="" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                        <mat-form-field appearance="outline" style="width: 100%;" >
+                          <input matInput formControlName='city' placeholder="City">
+                        </mat-form-field>
+                      </div>
+                      </div>
+
+
+
+                      <div fxLayout="row wrap"  fxFlex="50" style="width: 100%;" fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                        <div fxLayout="row wrap"  class="" style="width: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                        <div fxLayout="column wrap" fxLayoutGap="1em"   class=""  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                      <div class="name" fxLayout="column wrap"    fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                       State
+                      </div>
+                      </div>
+                      <div fxLayout="column wrap" fxLayoutGap="1em" class="" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                        <mat-form-field appearance="outline" style="width: 100%;">
+                          <mat-select placeholder="select state" formControlName="state" disableOptionCentering>
+                            <mat-option *ngFor="let state of states;  let indexOfelement=index;" [value]="state">
+                              {{state.name}}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                      </div>
+
+                    </div>
+
+                    <div fxLayout="row wrap"  fxFlex="100" style="width: 100%;margin-top: 1em;" fxLayoutGap="1em" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+
+                      <div fxLayout="row wrap" fxLayoutGap="1em"  fxFlex="48" class=""  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                        <div fxLayout="row wrap" fxLayoutGap="1em"  class=""  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                      <div class="name" fxLayout="column wrap"  style="width:100%" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                        Country
+                      </div>
+                      </div>
+                      <div fxLayout="row wrap" fxLayoutGap="1em" style="width:100%" class="" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                      <div fxLayout="column wrap"   fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                        India
+                      </div>
+                      </div>
+                      </div>
+
+
+
+                      <div fxLayout="row wrap"  fxFlex="50" style="width: 100%;" fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                        <div fxLayout="row wrap"  class="" style="width: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                        <div fxLayout="column wrap" fxLayoutGap="1em"   class=""  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                      <div class="name" fxLayout="column wrap"    fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                        Pincode
+                      </div>
+                      </div>
+                      <div fxLayout="column wrap" fxLayoutGap="1em" class="" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                        <mat-form-field appearance="outline" style="width: 100%;" >
+                          <input matInput formControlName='pincode' placeholder="Pincode">
+                        </mat-form-field>
+                      </div>
+                    </div>
+                      </div>
+                    </div>
+
+          </div>
+          <mat-divider></mat-divider>
+
+
+
+        </mat-dialog-content>
+      </form>
+        <mat-dialog-actions align="center">
+          <button class="sbmButton" [mat-dialog-close]="true" cdkFocusInitial (click)="billing()">
+
+            <div class="submit">
+              Submit
+            </div>
+          </button>
+        </mat-dialog-actions>
+
+          </div>
+
+        </div>
+        </div>
+        </div>

@@ -1,0 +1,189 @@
+<div fxLayout="row wrap" class="width100" style="height: 100vh;"  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+  <div fxLayout="column wrap" class="width100"  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+    <div fxLayout="row wrap" style="background: rgb(255, 255, 255);" class="width100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" fxFill>
+      <div fxLayout="column wrap"  class="main-col-p width100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+
+        <div fxLayout="row wrap" style="padding-bottom: 2em;" fxLayoutAlign="space-between center" [fxShow]="true" [fxHide]="false">
+
+          <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+            <div fxLayout="row wrap" fxLayoutGap="0.5em" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div fxLayout="column wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                <mat-icon class="check">check_circle_outline</mat-icon>
+              </div>
+              <div fxLayout="row wrap" fxFlex="60%"  class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div class="login" style="width: 100%;" fxLayout="row wrap"  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                Logged in as
+              </div>
+
+              <div class="login1"style="width: 100%;"fxLayout="row wrap" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+                {{email}}
+               </div>
+            </div>
+
+            <div fxLayout="row wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <button mat-raised-button>
+                Signout
+            </button>
+            </div>
+            </div>
+
+
+        </div>
+        </div>
+        <mat-divider></mat-divider>
+
+
+        <div fxLayout="row wrap" style="padding-bottom: 2em;padding-top: 2em;" fxLayoutAlign="space-between center" [fxShow]="true" [fxHide]="false">
+
+          <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+            <div fxLayout="row wrap" fxLayoutGap="0.5em" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div fxLayout="column wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                <mat-icon class="check">check_circle_outline</mat-icon>
+              </div>
+              <div fxLayout="row wrap" fxFlex="60%"  class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div class="login" style="width: 100%;" fxLayout="row wrap"  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                Business Details
+              </div>
+
+              <div class="login1"style="width: 100%;"fxLayout="row wrap" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+                Ordering for: Personal Use
+               </div>
+            </div>
+
+            <div fxLayout="row wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <button mat-raised-button>
+                Signout
+            </button>
+            </div>
+            </div>
+
+
+        </div>
+        </div>
+        <mat-divider></mat-divider>
+
+        <div fxLayout="row wrap" style="padding-bottom: 2em;padding-top: 2em;" fxLayoutAlign="space-between center" [fxShow]="true" [fxHide]="false">
+
+          <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+            <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div fxLayout="column wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                <mat-icon class="check1">check_circle_outline</mat-icon>
+              </div>
+              <div fxLayout="row wrap" fxFlex="60%"  class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div class="login" style="width: 100%;" fxLayout="row wrap"  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                Shipping Address
+              </div>
+            </div>
+
+            <div class="login1" (click)="shippingDialog(&apos;shipping&apos;,&apos;shipping Address&apos;)" style="width: 100%;"  fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div class="address"  fxLayout="row wrap"  fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false">
+                <div fxLayout="row wrap"  class="pointer" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false">
+                  <mat-icon class="check1">room</mat-icon>
+                </div>
+                <div fxLayout="column wrap" style="width: 100%;padding-top: 0.7em;" class="pointer" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false">
+                  Add Address
+                </div>
+              </div>
+             </div>
+            </div>
+        </div>
+        </div>
+
+
+
+        <!--sencond dialog-->
+        <div fxLayout="row wrap" style="padding-bottom: 2em;padding-top: 2em;" fxLayoutAlign="space-between center" [fxShow]="true" [fxHide]="false">
+          <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+            <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div fxLayout="column wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                <mat-icon class="check1">check_circle_outline</mat-icon>
+              </div>
+              <div fxLayout="row wrap" fxFlex="60%"  class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div class="login" style="width: 100%;" fxLayout="row wrap"  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                Billing Address
+              </div>
+
+                <div class="login" style="width: 100%;padding-top: 0.4em;padding-bottom: 0.4em;" fxLayout="row wrap"  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                  <mat-checkbox class="chekz" [(ngModel)]="checked">
+                    <div class="chekztext">
+                      Same as Shipping
+                    </div>
+                    </mat-checkbox>
+                </div>
+            </div>
+          </div>
+
+
+          <div  *ngIf="checked==false" fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+            <div class="login1" (click)="shippingDialog(&apos;billing&apos;,&apos;Billing Address&apos;)" style="width: 100%;"  fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div class="address"  fxLayout="row wrap"  fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false">
+                <div fxLayout="row wrap"  class="pointer" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false">
+                  <mat-icon class="check1">room</mat-icon>
+                </div>
+                <div fxLayout="column wrap" style="width: 100%;padding-top: 0.7em;" class="pointer" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false">
+                  Add Address
+                </div>
+              </div>
+             </div>
+             </div>
+
+        </div>
+        </div>
+
+
+        <div fxLayout="row wrap" style="padding-bottom: 2em;" fxLayoutAlign="end end" [fxShow]="true" [fxHide]="false">
+
+          <div fxLayout="column wrap" fxLayoutAlign="end end" [fxShow]="true" [fxHide]="false">
+            <div fxLayout="row wrap" fxLayoutGap="0.5em" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div fxLayout="row wrap" fxFlex="60%"  class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div class="pay" style="width: 100%;" fxLayout="row wrap"  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+               Amount payable
+              </div>
+
+              <div class="taxtext"style="width: 100%;"fxLayout="row wrap" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+                Inclusive of all taxes
+               </div>
+            </div>
+
+            <div  fxLayout="row wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div class="paymoney">
+                &#8377;{{totalPrice}}
+              </div>
+            </div>
+            </div>
+
+
+        </div>
+        </div>
+
+
+
+        <div fxLayout="row wrap" style="padding-bottom: 2em;" fxLayoutAlign="end end" [fxShow]="true" [fxHide]="false">
+
+          <div fxLayout="column wrap" fxLayoutAlign="end end" [fxShow]="true" [fxHide]="false">
+            <div fxLayout="row wrap" fxLayoutGap="0.5em" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div fxLayout="row wrap" class="backsize"  class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <button mat-button class="backbutton" (click)="back()">
+                <mat-icon>keyboard_backspace</mat-icon>
+                Go to Back</button>
+            </div>
+
+            <div fxLayout="row wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <button mat-button class="paytbtn" (click)="back()">
+                <mat-icon class="paycolor">payments</mat-icon>
+                Choose Payment Method</button>
+            </div>
+            </div>
+
+
+        </div>
+        </div>
+
+
+
+
+
+        </div>
+        </div>
+        </div>
+        </div>

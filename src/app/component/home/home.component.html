@@ -9,30 +9,12 @@
       </div>
 
 
-      <!-- <div fxLayout="column wrap" style="height: 100%; overflow-y: auto; overflow-x: hidden;" class="doNotPrint side-nav-content" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
-        <div fxLayout="row wrap"   class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" >
-          <div fxLayout="column wrap"  style="padding:1em;padding-top:1.5em;" class="side-nav-label-name" fxLayoutAlign="center start" [fxShow]="true"><span style="height: 100%;">
-                <app-sidenav *ngFor="let item of navItems" [item]="item" class="navItems"></app-sidenav></span></div>
-        </div>
-      </div> -->
-
-
-
-
-
-
 
       <div fxLayout="row wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
         <div fxLayout="column wrap" fxFlex="{{expandNav ? 100 : 12}}" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false"></div>
         <div fxLayout="column wrap" class="side-nav-label-name" fxFlex="76" fxLayoutAlign="center start" [fxShow]="true" [fxHide]="expandNav">
          <span><app-sidenav *ngFor="let item of navItems" [item]="item" class="navItems"></app-sidenav></span></div>
       </div>
-
-      <!-- <div fxLayout="row wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" (click)="activeLink(&apos;useradd&apos;)" [ngClass]="{&apos;active-side-navlist&apos;:genService.activeTab === &apos;useradd&apos;}" >
-        <div fxLayout="column wrap" fxFlex="{{expandNav ? 100 : 12}}" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false"><img src="../../../assets/Web/dashboard.png" class="dash-icons"></div>
-        <div fxLayout="column wrap" class="side-nav-label-name" fxFlex="76" fxLayoutAlign="center start" [fxShow]="true" [fxHide]="expandNav"><span >
-              Category Details</span></div>
-      </div> -->
 
     </div>
   </div>
@@ -50,13 +32,10 @@
           </div>
           <div fxLayout="column wrap" fxFlex="33" fxLayoutAlign="center end" [fxShow]="true" [fxHide]="false">
             <div fxLayout="row wrap" fxLayoutGap="15px" fxLayoutAlign="end center" [fxShow]="true" [fxHide]="false">
-              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><span style="font-size:16px">
-                MOHAMMAD JAVED KASHAF</span></div>
-              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
-                <div class="toolbar-name">
-                  MK</div>
-              </div>
-              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><img src="../../../assets/Web/log-out.png" (click)="logout()" class="logout-pointer"></div>
+              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><span style="font-size:16px;margin-right: 18px;">
+                Mohammad Javed</span></div>
+                <app-cartstatus></app-cartstatus>
+              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><img src="../../../assets/Web/log-out.png" class="pointer" (click)="logout()" class="logout-pointer"></div>
             </div>
           </div>
         </div>
@@ -70,14 +49,5 @@
       </div>
     </div>
   </div>
-
-
-
-
-
-
-
-
-
 
 </div>
