@@ -44,6 +44,10 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatDialogModule} from '@angular/material/dialog';
 import { CheckoutdialogComponent } from './component/checkoutdialog/checkoutdialog.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatDialogRef } from '@angular/material/dialog';
+import { PaymentComponent } from './component/payment/payment.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { CategorylistComponent } from './component/categorylist/categorylist.component';
 
 
 
@@ -68,7 +72,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     CartstatusComponent,
     CartdetailsComponent,
     CheckoutComponent,
-    CheckoutdialogComponent
+    CheckoutdialogComponent,
+    PaymentComponent,
+    CategorylistComponent
   ],
   imports: [
     BrowserModule,
@@ -92,13 +98,15 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     ReactiveFormsModule,
     MatDividerModule,
     MatDialogModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatExpansionModule
 
 
   ],
   providers: [AuthenticationguardGuard,AuthenticationService,
 
-    {provide:HTTP_INTERCEPTORS,useClass:HttpintercepterInterceptor,multi:true}
+    {provide:HTTP_INTERCEPTORS,useClass:HttpintercepterInterceptor,multi:true},
+
    ],
   bootstrap: [AppComponent]
 })

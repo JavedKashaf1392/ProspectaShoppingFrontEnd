@@ -1,8 +1,10 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Category } from 'src/app/component/category';
-import { Product } from 'src/app/component/product';
+import { Category } from 'src/app/component/model/category';
+import { PaymentInfo } from 'src/app/component/model/payment-info';
+import { Product } from 'src/app/component/model/product';
+import { Purchase } from 'src/app/component/model/purchase';
 import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
 
@@ -18,24 +20,16 @@ export class BackendService {
     return this.http.get(url);
   }
 
-
-  // AllUsers(){
-  //   return this.http.get<User[]>(`${this.basePath}/all?keyword=${keyword}`,{params });
-  // }
-
   search(payload) {
-    debugger;
     let url = `${environment.properties.baseURL}apiGetUserDetails?email=${payload.email || ""}&firstName=${
       payload.firstName || ""}&userId=${payload.userId || ""}&phoneNumber=${payload.phoneNumber || ""}`;
     return this.http.get(url);
   }
 
-
   getRoles() {
     let url = `${environment.properties.baseURL}apiRetriveUserRoles`;
     return this.http.get(url);
   }
-
 
   fetchUser(email) {
     if (!email ) {
@@ -50,15 +44,14 @@ export class BackendService {
     return this.http.get<any>(`${environment.properties.baseURL}category/categoriesForm`)
   }
 
-
-  saveCategory(category:Category):Observable<any>{
-    console.log(JSON.stringify(category));
-     return this.http.post(`${environment.properties.baseURL}category/categories/save`,category,{responseType:"text"});
+  saveCategory(file?:File,category?):Observable<any>{
+    const formData: FormData = new FormData();
+    formData.append('file', file);
+    formData.append("category",JSON.stringify(category));
+    debugger;
+    console.log("payload",formData);
+     return this.http.post(`${environment.properties.baseURL}category/categories/save`,formData,{responseType:"text"});
    }
-
-
-
-
 
   saveUser(payload) {
     let url = `${environment.properties.baseURL}user/save`;
@@ -67,16 +60,10 @@ export class BackendService {
     return this.http.post(url,payload,{headers:headers});
   }
 
-
-
-
-
-
   getUser(id) {
     let url = `${environment.properties.baseURL}user/${id}`;
     return this.http.get(url);
   }
-
   getImage(photos) {
     return this.http.get(`${environment.properties.baseURL}file/files/${photos}`, { responseType: 'blob'})
   }
@@ -85,19 +72,9 @@ export class BackendService {
     return this.http.get(`${environment.properties.baseURL}file/files`);
   }
 
-
   getAllphotos() {
     return this.http.get(`${environment.properties.baseURL}file/files`);
   }
-
-
-
-   //retriving the template
-  //  getPhoto( templateName?) {
-  //   return this.http.get(`${environment.base_url}/api/getTemplate?companyId=${companyId}&templateName=${templateName}`, { responseType: 'blob' });
-  // }
-
-
 
   uploadImage(file:File,user) {
     const formData: FormData = new FormData();
@@ -107,12 +84,10 @@ export class BackendService {
     return this.http.post(`${environment.properties.baseURL}file/upload`, formData,{responseType: 'json'})
   }
 
-
   AllRoles(){
     let url = `${environment.properties.baseURL}user/roles`;
     console.log("url",url);
     return this.http.get(url);
-
   }
 
   login(payload){
@@ -120,15 +95,10 @@ export class BackendService {
     return this.http.post(url,payload);
   }
 
-
-
-
   // Product details
    getAllProducts(){
     return this.http.get(environment.properties.baseURL +'product/all');
   }
-
-
 
   deleteProduct(ids:number[]):Observable<any>{
     return this.http.delete(`${environment.properties.baseURL}product/remove/${ids}`,{responseType:'text'})
@@ -140,7 +110,6 @@ export class BackendService {
 
   ExportExcel(id:number[]):Observable<any>{
     return this.http.get(environment.properties.baseURL +'product/customers.xlsx/'+id,{responseType:'blob'});
-
   }
 
   saveProduct(product : Product):Observable<any>{
@@ -159,22 +128,19 @@ export class BackendService {
     return this.http.get(environment.properties.baseURL +'product/inactive/' +id,{responseType:'text'});
   }
 
+  placeOrder(purchase:Purchase):Observable<any>{
+    console.log("Purchase",purchase);
+    return this.http.post<Purchase>(environment.properties.baseURL +'api/checkout/purchase',purchase);
+  }
 
+  createPaymentIntent(paymentInfo:PaymentInfo):Observable<any>{
+    return this.http.post<PaymentInfo>(environment.properties.baseURL+'api/checkout/payment-intent',paymentInfo);
+  }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  ///category data is here
+  getCategory(id){
+    return this.http.get(`${environment.properties.baseURL}category/${id}`);
+  }
 
   openSnackBar(msg, icon?, width?, template?, timeInterval?) {
     let sweetObj: any = {

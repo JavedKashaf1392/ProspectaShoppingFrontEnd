@@ -8,6 +8,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   padding: 1.5em 2em;
 }
 
+
+
 .userList-title {
   font-style: normal;
   font-weight: 500;
@@ -433,21 +435,29 @@ input:checked + .slider:before {
   padding: 0.5em 1em;
 
 }
-.formfileld.mat-form-field-appearance-outline .mat-form-field-flex {
-  padding: 0em 0em 0em 1em !important;
+// .formfileld.mat-form-field-appearance-outline .mat-form-field-flex {
+//   padding: 0em 0em 0em 1em !important;
 
+// }
+
+// .formfileld .mat-form-field-appearance-outline .mat-form-field-infix {
+//   padding: 0.7em 0 0.7em 0;
+// }
+
+
+.mat-form-field-flex>.mat-form-field-infix {
+  padding: 0.4em 0!important;
 }
-
-.formfileld .mat-form-field-appearance-outline .mat-form-field-infix {
-  padding: 0.7em 0 0.7em 0;
-}
-
 .success_btn {
   background-color: #6cb33f;
   color: white;
   border-radius: 2px !important;
   font-weight: 600;
   font-size: 14px;
+}
+
+.router-outlet-scroll {
+  overflow-y: scroll !important;
 }
 
 .custom .mat-dialog-container {

@@ -31,6 +31,7 @@ export class HomeComponent implements OnInit {
   @Input() item: NavItem;
   @Input() depth: number;
   expanded: any;
+  cartItem:number = 0;
 
   constructor(
     public genService:GenericService,
@@ -39,10 +40,22 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.cartItemFunc()
     if(this.item !=undefined){
       console.log("items  data",this.item);
     }
 
+
+
+
+  }
+
+
+  cartItemFunc(){
+    if(localStorage.getItem('localCart') != null){
+      var cartCount =  JSON.parse(localStorage.getItem('localCart'));
+      this.cartItem = cartCount.length;
+    }
   }
 
 

@@ -23,7 +23,6 @@ export class UserlistComponent implements OnInit {
   @ViewChild('table') table: MatTable<any>
 
   displayedColumns: string[] = [
-    "photos",
     "email",
     "firstName",
     "lastName",
@@ -73,8 +72,6 @@ export class UserlistComponent implements OnInit {
   async initializePhotoList() {
     let list = await this.backEnd.getAllphotos().toPromise();
     this.generic.imageList = list;
-
-
     this.getOnePhoto();
   }
 

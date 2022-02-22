@@ -1,26 +1,67 @@
-<div fxLayout="row" style="height: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
-  <div fxLayout="column" class="side-nav" fxLayoutAlign="space-between start" [fxShow]="true" [fxHide]="false" [class]="!expandNav ? &apos;expand-nav side-nav&apos; :&apos;compress-nav side-nav&apos;">
-    <div fxLayout="column" style="width:100%" fxFlex="75" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
-      <div fxLayout="row " style="height : 50px ; border-bottom: 1px solid gray;" fxLayoutAlign="space-between center" [fxShow]="true" [fxHide]="false">
+
+<div fxLayout="row " style="height:100%" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+  <div fxLayout="column " class="side-nav" fxLayoutAlign="space-between start" [fxShow]="true" [fxHide]="false" [class]="!expandNav ? &apos;expand-nav side-nav&apos; : &apos;compress-nav side-nav&apos;">
+    <div fxLayout="column " style="width:100%" fxFlex="75" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+      <div fxLayout="row " style="height : 64px ; border-bottom: 1px solid gray;" fxLayoutAlign="space-between center" [fxShow]="true" [fxHide]="false">
         <div fxLayout="row wrap" style="padding-left:15px;" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false"><img src="../../../assets/Web/logo-icon.png" [fxHide]="!expandNav" width="22"><img src="../../../assets/Web/ingredio-logo.png" height="34" [fxHide]="expandNav" width="150"></div>
         <div fxLayout="row wrap" style="background: #30343E; height:100%;" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false">
           <mat-icon style="color:  #838487;" class="pointer" (click)="expandNav = !expandNav" [ngClass]="{&apos;rotate180&apos; : expandNav , &apos;rotate-back&apos; : !expandNav } ">chevron_left</mat-icon>
         </div>
       </div>
-
-
-
-      <div fxLayout="row wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
-        <div fxLayout="column wrap" fxFlex="{{expandNav ? 100 : 12}}" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false"></div>
-        <div fxLayout="column wrap" class="side-nav-label-name" fxFlex="76" fxLayoutAlign="center start" [fxShow]="true" [fxHide]="expandNav">
-         <span><app-sidenav *ngFor="let item of navItems" [item]="item" class="navItems"></app-sidenav></span></div>
+      <div fxLayout="row wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" (click)="activeLink(&apos;dashboard&apos;)" [ngClass]="{&apos;active-side-navlist&apos;:genService.activeTab === &apos;dashboard&apos;}" >
+        <div fxLayout="column wrap" fxFlex="{{expandNav ? 100 : 12}}" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false">
+        <mat-icon class="dash-icons">dashboard</mat-icon>
+        </div>
+        <div fxLayout="column wrap" class="side-nav-label-name" fxFlex="76" fxLayoutAlign="center start" [fxShow]="true" [fxHide]="expandNav"><span>
+                Dashboard</span></div>
       </div>
+      <div fxLayout="row wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" (click)="activeLink(&apos;userlist&apos;)" [ngClass]="{&apos;active-side-navlist&apos;:genService.activeTab === &apos;userlist&apos;}">
+        <div fxLayout="column wrap" fxFlex="{{expandNav ? 100 : 12}}" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false">
+          <mat-icon class="dash-icons">people</mat-icon>
+        </div>
+        <div fxLayout="column wrap" class="side-nav-label-name" fxFlex="76" fxLayoutAlign="center start" [fxShow]="true" [fxHide]="expandNav"><span>
+        User List</span></div>
+      </div>
+
+      <div fxLayout="row wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" (click)="activeLink(&apos;changeformula&apos;)" [ngClass]="{&apos;active-side-navlist&apos;:genService.activeTab === &apos;changeformula&apos;}">
+        <div fxLayout="column wrap" fxFlex="{{expandNav ? 100 : 12}}" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false">
+          <mat-icon class="dash-icons">person_add</mat-icon>
+        </div>
+        <div fxLayout="column wrap" class="side-nav-label-name" fxFlex="76" fxLayoutAlign="center start" [fxShow]="true" [fxHide]="expandNav"><span>
+        Add User</span></div>
+      </div>
+
+      <div fxLayout="row wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" (click)="activeLink(&apos;listproduct&apos;)" [ngClass]="{&apos;active-side-navlist&apos;:genService.activeTab === &apos;listproduct&apos;}" >
+        <div fxLayout="column wrap" fxFlex="{{expandNav ? 100 : 12}}" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false">
+        <mat-icon class="dash-icons">dehaze</mat-icon>
+        </div>
+        <div fxLayout="column wrap" class="side-nav-label-name" fxFlex="76" fxLayoutAlign="center start" [fxShow]="true" [fxHide]="expandNav"><span>
+        Product List</span></div>
+      </div>
+
+
+      <div fxLayout="row wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" (click)="activeLink(&apos;categorylist&apos;)" [ngClass]="{&apos;active-side-navlist&apos;:genService.activeTab === &apos;categorylist&apos;}" >
+        <div fxLayout="column wrap" fxFlex="{{expandNav ? 100 : 12}}" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false">
+        <mat-icon class="dash-icons">widgets</mat-icon>
+        </div>
+        <div fxLayout="column wrap" class="side-nav-label-name" fxFlex="76" fxLayoutAlign="center start" [fxShow]="true" [fxHide]="expandNav"><span>
+        Category List</span></div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
     </div>
   </div>
-
-
-
   <div fxLayout="column " fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" [class]="!expandNav ? &apos;expand-toolbar &apos; : &apos;compress-toolbar &apos;">
     <div fxLayout="row wrap" style="flex-shrink:0;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
       <mat-toolbar class="toolbar">
@@ -32,22 +73,27 @@
           </div>
           <div fxLayout="column wrap" fxFlex="33" fxLayoutAlign="center end" [fxShow]="true" [fxHide]="false">
             <div fxLayout="row wrap" fxLayoutGap="15px" fxLayoutAlign="end center" [fxShow]="true" [fxHide]="false">
-              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><span style="font-size:16px;margin-right: 18px;">
-                Mohammad Javed</span></div>
-                <app-cartstatus></app-cartstatus>
-              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><img src="../../../assets/Web/log-out.png" class="pointer" (click)="logout()" class="logout-pointer"></div>
+              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><span style="font-size:16px">
+                khan</span></div>
+              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+               <button (click)="logout()">logout</button>
+              </div>
+              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><img imgSrc="Web/log-out.png" (click)="logout()" class="logout-pointer"></div>
             </div>
+          </div>
+
+          <div>
+            <!-- {{cartItem}} -->
+            <app-cartstatus></app-cartstatus>
+
           </div>
         </div>
       </mat-toolbar>
     </div>
-
-
-    <div fxLayout="row wrap" style="width:100%;" class="router-outlet-scroll" fxLayoutAlign="none" [fxShow]="true" [fxHide]="false">
+    <div fxLayout="row wrap" style="width:100%;" class="router-outlet-scroll" fxLayoutAlign="  none" [fxShow]="true" [fxHide]="false">
       <div class="width100">
         <router-outlet></router-outlet>
       </div>
     </div>
   </div>
-
 </div>

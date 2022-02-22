@@ -11,6 +11,11 @@ export class GenericService {
   public  keyword:string;
   public imageList:any;
   public price:number;
+  public shipping:any;
+  public billing:any;
+  public shippingPay:any;
+  public billingPay:any;
+  public categoryList:any;
 
   constructor() { }
 }

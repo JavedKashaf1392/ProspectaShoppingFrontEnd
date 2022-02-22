@@ -1,81 +1,273 @@
-<div class="main-content">
-<div class="section-content section-content-p30">
-  <div class="container-fluid">
-
-    <div *ngIf="cartItems.length > 0">
-    <table class="table tableclass">
-<tr class="tabletr">
-    <th style="width: 20%;">Product Image</th>
-    <th style="width: 20%;">Product Detail</th>
-    <th style="width: 30%;"></th>
-</tr>
-
-<tr class="tabletr1" *ngFor="let tempCartItem of cartItems" >
-  <td >
-    <img src="../../assets/{{tempCartItem.photo}}" class="img-responsive" >
-  </td>
-  <td>
-    <p>{{tempCartItem.productName}}</p>
-    <p>{{tempCartItem.productPrice | currency:'&#8377;'}} </p>
-  </td>
-  <td>
-    <div class="items">
-    <label>Quantity:</label>
+<div fxLayout="row wrap" class="width100" style="height: 100vh;"  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+  <div fxLayout="column wrap" class="width100"  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+    <div fxLayout="row wrap" style="background: rgb(255, 255, 255);" class="width100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" fxFill>
+      <div fxLayout="column wrap"  class="main-col-p width100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
 
 
-    <div fxLayout="row wrap" class="size" fxFlexAlign="start stretch" fxFlex="100"  style="display: flex;">
-      <div fxLayout="column" fxFlex="20" fxFlexAlign="center center" >
-        <button (click)="incrementQuantity(tempCartItem)" mat-icon-button aria-label="Example icon-button with a heart icon">
-          <mat-icon>add_circle</mat-icon>
-        </button>
-
+<div fxLayout="row wrap" style="padding-bottom: 4em; padding-top: 1em; padding-left: 2em;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+<div fxLayout="column wrap" fxLayoutAlign="start stretch"  [fxShow]="true" [fxHide]="false">
+  <div fxLayout="row wrap" style="width: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+    <div *ngIf="cartItems.length > 0"  style="width: 100%;"  fxLayout="column wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+      <div fxLayout="column wrap" class="pointer" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+        <div class="shopping">Shopping Cart</div>
       </div>
-
-      <div fxLayout="column wrap" fxFlexAlign="center end">
-        {{tempCartItem.quantity}}
+      <div fxLayout="column wrap" class="pointer" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+        <div class="quantity">{{totalQuantity}}items</div>
       </div>
-
-      <div fxLayout="column" fxFlex="20" fxFlexAlign="center center" >
-        <button (click)="decrementQuantity(tempCartItem)" mat-icon-button aria-label="Example icon-button with a heart icon">
-          <mat-icon>remove_circle</mat-icon>
-        </button>
-
-      </div>
-
     </div>
 
-    <div>
-      <button (click)="RemoveItem(tempCartItem)" mat-icon-button aria-label="Example icon-button with a heart icon">Remove
-        <mat-icon>delete</mat-icon>
-      </button>
-    </div>
-    </div>
-
-    <p class="mt-2">Subtotal:{{tempCartItem.quantity * tempCartItem.productPrice | currency: '&#8377;'}}</p>
-  </td>
-
-</tr>
-
-<td colspan="2"></td>
-<td style="font-weight:bold;">
-<p>Total Quantity : {{totalQuantity}}</p>
-<p>Shipping : FREE</p>
-<p>Total Price: {{totalPrice | currency: '&#8377;'}}</p>
-<button mat-raised-button color="accent" routerLink="/home/checkout"><mat-icon>shopping_cart_checkout</mat-icon>checkout</button>
-</td>
-<td>
-<tr>
-</tr>
-
-    </table>
   </div>
-  <div *ngIf="cartItems.length == 0" class="alert">
-    <h3 style="margin-left: 20px;margin-top: 20px;">Hi! your shopping cart is empty</h3>
-
-  </div>
-
-  </div>
-
 </div>
 
+
+
+
+
+
+
+<!--header data is here-->
+<div fxLayout="row wrap" fxFlex="100" fxLayoutAlign="start stretch"  [fxShow]="true" [fxHide]="false">
+  <div fxLayout="row wrap" fxFlex="65" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+    <div *ngIf="cartItems.length > 0" fxLayout="column wrap" fxFlex="100" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+      <div fxLayout="column wrap"  class="pointer header" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+        <div class="delivery">Delivery - {{totalQuantity}} items</div>
+      </div>
+    </div>
+
+
+
+      <div *ngFor="let tempCartItem of getCartDetails" fxLayout="row wrap" fxFlex="100" fxLayoutAlign="start stretch"  [fxShow]="true" [fxHide]="false">
+        <div fxLayout="row wrap" fxFlex="100" fxLayoutAlign="start stretch"  [fxShow]="true" [fxHide]="false">
+          <div fxLayout="row wrap" fxFlex="100" class="bodycell" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+            <div *ngIf="getCartDetails.length > 0" class="itemdata" fxLayout="row wrap" fxFlex="100" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div fxLayout="column wrap"  class="pointer datashowing" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+                <img src="../../assets/{{tempCartItem.photo}}" class="img-responsive" >
+              </div>
+
+              <div fxLayout="column wrap"  class="pointer datashowing" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+               <div fxLayout="row wrap" fxLayoutAlign="start stretch"  [fxShow]="true" [fxHide]="false">
+                <div class="cart">
+                  Employe Digital Card
+                </div>
+               </div>
+
+               <div fxLayout="row wrap" fxLayoutAlign="start stretch"  [fxShow]="true" [fxHide]="false">
+                <div class="idtest">
+                  ID:{{tempCartItem.productName}}
+                </div>
+               </div>
+
+               <div fxLayout="row wrap" fxLayoutAlign="start stretch"  [fxShow]="true" [fxHide]="false">
+                <div class="idtest">
+                  Price: &#8377;{{tempCartItem.productPrice}}
+                </div>
+               </div>
+              </div>
+
+
+              <div fxLayout="column wrap"  class="pointer datashowing" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+                <div fxLayout="row wrap" fxLayoutAlign="start stretch"  [fxShow]="true" [fxHide]="false">
+                 <mat-icon class="deliveryicon">local_shipping</mat-icon>
+                 <div fxLayout="row wrap" fxLayoutAlign="start start"  [fxShow]="true" [fxHide]="false" class="deliverytext">Delivery by</div>
+                </div>
+
+                <div fxLayout="row wrap" fxLayoutAlign="start start"  [fxShow]="true" [fxHide]="false">
+                 <div class="datetext">
+                   {{deliverydate | date: 'dd,MMM'}}
+                 </div>
+                </div>
+               </div>
+
+
+               <div fxLayout="column wrap"  style="padding-left: 2em;" class="pointer datashowing" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+                 <div fxLayout="row wrap" fxLayoutAlign="start start"  [fxShow]="true" [fxHide]="false" class="deliverytext">{{tempCartItem.quantity}} Qty</div>
+
+                 <div fxLayout="row wrap" class="buttons" fxLayoutAlign="start start"  [fxShow]="true" [fxHide]="false">
+                  <div>
+                    <mat-icon (click)="incrementQuantity(tempCartItem)">add_circle</mat-icon>&nbsp;
+                   </div>
+                   <div>
+                    {{tempCartItem.qunantity}}&nbsp;
+                   </div>
+                   <div>
+                    <mat-icon (click)="decrementQuantity(tempCartItem)">remove_circle</mat-icon>
+                   </div>
+                 </div>
+               </div>
+
+
+               <div fxLayout="column wrap"  style="padding-left: 2em;" class="pointer datashowing" fxLayoutAlign="start end" [fxShow]="true" [fxHide]="false">
+                <div fxLayout="row wrap" fxLayoutAlign="start end"  [fxShow]="true" [fxHide]="false">
+                 <div fxLayout="row wrap" fxLayoutAlign="start end"  [fxShow]="true" [fxHide]="false" class="moneytext">
+
+                  &#8377;{{tempCartItem.qunantity * tempCartItem.productPrice}}</div>
+                </div>
+               </div>
+
+
+
+               <div fxLayout="column wrap"  style="padding-left: 2em;" class="pointer datashowing" fxLayoutAlign="start end" [fxShow]="true" [fxHide]="false">
+                <div fxLayout="row wrap" fxLayoutAlign="start end"  [fxShow]="true" [fxHide]="false">
+                  <div fxLayout="row wrap" fxLayoutAlign="start end"  [fxShow]="true" [fxHide]="false" class="moneytext">
+                   <div (click)="deleteOne(tempCartItem)">
+                    <mat-icon>delete</mat-icon>
+                   </div>
+                 </div>
+               </div>
+
+
+            </div>
+
+
+            </div>
+            </div>
+
+            </div>
+
+                  </div>
+                  <div *ngIf="getCartDetails.length > 0">
+                    <button mat-raised-button color="warn" (click)="removeAllProduct()">Remove all</button>
+                  </div>
+
+                </div>
+
+
+                  <div *ngIf="getCartDetails.length > 0" fxLayout="row wrap" fxFlex style="padding-left: 1em;" fxFlex fxLayoutAlign="start stretch"  [fxShow]="true" [fxHide]="false">
+                    <div fxLayout="row wrap" class="summary" fxFlex="75" fxLayoutAlign="start stretch"  [fxShow]="true" [fxHide]="false">
+                      <div fxLayout="row wrap" class="bodycell" style="width: 100%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                        <div  fxLayout="column wrap" fxFlex="100" class="pointer" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+                          <div fxLayout="column wrap"class="pointer" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+                            <div fxLayout="row wrap" class="summaydata"  fxLayoutAlign="start end" [fxShow]="true" [fxHide]="false">
+                             <div fxLayout="row wrap" class="summarytext"  fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false">
+                              Summary
+                             </div>
+
+
+
+
+
+                             <div fxLayout="column wrap" style="padding-top: 1.5em;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                              <div fxLayout="row wrap" fxLayoutGap="0.5em" fxLayoutAlign="start end" [fxShow]="true" [fxHide]="false">
+                                <div fxLayout="row wrap" fxFlex="60%"  class="pointer" fxLayoutAlign="start end" [fxShow]="true" [fxHide]="false">
+                                <div class="pay" style="width: 100%;" fxLayout="row wrap"  fxLayoutAlign="start end" [fxShow]="true" [fxHide]="false">
+                                 Amount payable
+                                </div>
+
+                                <div class="taxtext"style="width: 100%;"fxLayout="row wrap" fxLayoutAlign="start end" [fxShow]="true" [fxHide]="false">
+                                  Inclusive of all taxes
+                                 </div>
+                              </div>
+
+                              <div  fxLayout="row wrap" style="padding-top: 1.5em;padding-bottom: 1.5em;" class="pointer" fxLayoutAlign="start end" [fxShow]="true" [fxHide]="false">
+                                <div class="paymoney">
+                                  &#8377;{{totalPrice}}
+                                </div>
+                              </div>
+                              </div>
+                          </div>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        </div>
+<div  fxLayout="row wrap" style="padding-top: 1em;" fxFlex="100" fxLayoutAlign="start stretch"  [fxShow]="true" [fxHide]="false">
+  <button mat-button class="paytbtn" (click)="payment()" >
+    <mat-icon class="paycolor">payments</mat-icon>
+    Choose Payment Method</button>
+</div>
+                          </div>
+
+
+
+
+                     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  <div *ngIf="getCartDetails.length == 0" class="alert">
+
+    <div fxLayout="row wrap" style="padding-bottom: 3em; padding-top: 1em;" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false">
+      <div fxLayout="column wrap" fxLayoutAlign="start stretch"  [fxShow]="true" [fxHide]="false">
+        <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+
+          <div fxLayout="column wrap" style="padding-left: 1em;" class="pointer" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false">
+            <div>
+              <img src="../../../assets/sad.svg"  width="111px" height="124px">
+            </div>
+            <div fxLayout="column wrap" style="padding-left: 1em; " class="pointer" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false">
+              <div class="carttext">
+                This is embarrassing! Your cart is empty at the moment.
+              </div>
+            </div>
+
+            <div fxLayout="column wrap" style="padding-left: 1em;padding-top: 0.8em;" class="pointer" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false">
+              <div class="cartsmall">
+                But we are here to help. Go ahead and customise your product by browsing products in Printo.
+              </div>
+            </div>
+
+            <div fxLayout="row wrap" class="backsize" style="padding-top: 1.5em;"  class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <button mat-button class="backbutton" (click)="back()">
+                <mat-icon>keyboard_backspace</mat-icon>
+                Go to Home</button>
+            </div>
+
+          </div>
+        </div>
+    </div>
+    </div>
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+</div>
 </div>

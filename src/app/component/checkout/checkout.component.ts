@@ -1,9 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, NumberValueAccessor } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
+import { BackendService } from 'src/app/services/backend/backend.service';
 import { CartService } from 'src/app/services/backend/cart.service';
 import { GenericService } from 'src/app/services/generic/generic.service';
+import { SharedService } from 'src/app/services/shared/shared.service';
+import { environment } from 'src/environments/environment';
 import { CheckoutdialogComponent } from '../checkoutdialog/checkoutdialog.component';
+import { Order } from '../model/order';
+import { OrderItem } from '../model/order-item';
+import { PaymentInfo } from '../model/payment-info';
+import { Purchase } from '../model/purchase';
 
 @Component({
   selector: 'app-checkout',
@@ -16,76 +25,34 @@ export class CheckoutComponent implements OnInit {
   email: string;
   checked = false;
   totalPrice:number = 0.00;
-  // states:any=[
-  //   {id:1,name:"Andhra Pradesh"},
-  //   {id:2,name:"Arunachal Pradesh"},
-  //   {id:3,name:"Assam"},
-  //   {id: 4,name:"Bihar"},
-  //   {id: 5,name:"Chhattisgarh"},
-  //   {id: 6,name:"Goa"},
-  //   {id: 7,name:"Gujarat"},
-  //   {id: 8,name:"Haryana"},
-  //   {id: 9,name:"Himachal Pradesh"},
-  //   {id: 10,name:"Jharkhand"},
-  //   {id: 11,name:"Karnataka"},
-  //   {id:12,name:"Kerala"},
-  //   {id: 13,name:"Madhya Pradesh"},
-  //   {id: 14,name:"Maharashtra"},
-  //   {id: 15,name:"Manipur"},
-  //   {id: 16,name:"Meghalaya"},
-  //   {id: 17,name:"Mizoram"},
-  //   {id: 18,name:"Nagaland"},
-  //   {id: 19,name:"Odisha"},
-  //   {id: 20,name:"Punjab"},
-  //   {id: 21,name:"Rajasthan"},
-  //   {id: 22,name:"Sikkim"},
-  //   {id: 23,name:"Tamil Nadu"},
-  //   {id: 24,name:"Telangana"},
-  //   {id: 25,name:"Tripura"},
-  //   {id: 26,name:"Uttar Pradesh"},
-  //   {id: 27,name:"Uttarakhand"},
-  //   {id: 28,name:"West Bengal"},
-  // ];
-  states:any=[
-    {id:1,name:"Andhra Pradesh"},
-    {id:2,name:"Arunachal Pradesh"},
-    {id:3,name:"Assam"},
-    {id: 4,name:"Bihar"},
-    {id: 5,name:"Chhattisgarh"},
-    {id: 6,name:"Goa"},
-    {id: 7,name:"Gujarat"},
-    {id: 8,name:"Haryana"},
-    {id: 9,name:"Himachal Pradesh"},
-    {id: 10,name:"Jharkhand"},
-    {id: 11,name:"Karnataka"},
-    {id:12,name:"Kerala"},
-    {id: 13,name:"Madhya Pradesh"},
-    {id: 14,name:"Maharashtra"},
-    {id: 15,name:"Manipur"},
-    {id: 16,name:"Meghalaya"},
-    {id: 17,name:"Mizoram"},
-    {id: 18,name:"Nagaland"},
-    {id: 19,name:"Odisha"},
-    {id: 20,name:"Punjab"},
-    {id: 21,name:"Rajasthan"},
-    {id: 22,name:"Sikkim"},
-    {id: 23,name:"Tamil Nadu"},
-    {id: 24,name:"Telangana"},
-    {id: 25,name:"Tripura"},
-    {id: 26,name:"Uttar Pradesh"},
-    {id: 27,name:"Uttarakhand"},
-    {id: 28,name:"West Bengal"},
-  ];
+  totalQuantity:number = 0;
 
-  constructor(private formBuilder:FormBuilder,public dialog: MatDialog,public cartService:CartService,public generic:GenericService) { }
+  shipping:any;
+  billing:any;
+
+
+  paymentInfo:PaymentInfo = new PaymentInfo();
+  cardElement:any;
+  displayError:any="";
+
+
+  constructor(private formBuilder:FormBuilder,
+    public dialog: MatDialog,
+    public cartService:CartService,
+    public generic:GenericService,
+    public sharedService:SharedService,
+    public backend:BackendService,
+    private route:Router
+    ) { }
 
 
 
   ngOnInit(): void {
-    console.log("states",this.states);
-    this.totalPrice=this.generic.price ? this.generic.price :this.totalPrice;
+    this.reviewCartDetails();
     this.email=localStorage.getItem("currentUser");
   }
+
+
 
 
   shippingDialog(action,name){
@@ -100,17 +67,129 @@ export class CheckoutComponent implements OnInit {
     },
     autoFocus: false,
     disableClose: true
+    });
 
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+
+
+    dialogRef.componentInstance.onSave.subscribe(data=> {
+      this.shipping=data;
+      console.log("data shipping",this.shipping);
+    })
+
+    dialogRef.componentInstance.onbilling.subscribe(data=> {
+      this.billing=data;
+      console.log("data billing",this.billing);
+    })
   }
 
   back(){
 
   }
 
+  SameAsShippingAddress(event){
+    if(event.checked==true){
+      this.checked=event.checked;
+      let res=this.sharedService.isVisibleSource.next(this.checked);
+    }
+    if(event.checked==false){
+      this.checked=event.checked;
+      let res=this.sharedService.isVisibleSource.next(this.checked);
+    }
+  }
+
+  payment(){
+
+  let order=new Order();
+
+  //SetUp order
+  order.totalPrice=this.totalPrice;
+  order.totalQuantity=this.totalQuantity;
+
+  //set the cartItems
+  const cartItems = this.cartService.cartItems;
+
+  //create order items from cartitems
+
+  //longway
+  // let orderItems:OrderItem[]=[];
+  // for(let i=0;i<cartItems.length;i++){
+  //   orderItems[i]=new OrderItem(cartItems[i]);
+  // }
 
 
-}
+     //-short way of doing the same thing
+     let orderItems = cartItems.map(tempOrderItem => new OrderItem(tempOrderItem));
+
+     //set up purchase
+     let purchase =new Purchase();
+     purchase.customer={
+      name:this.shipping['Name'],
+      email:this.email,
+      phoneNumber:this.shipping['MobileNumber'],
+      companyName:this.shipping['companyName']
+     };
+
+     //purchase shipping
+     purchase.shippingAddress={
+      doorAndStree:this.shipping['door'],
+      AreaAndLocality:this.shipping['area'],
+      landMark:this.shipping['landmark'],
+      City:this.shipping['city'],
+      State:this.shipping['state'],
+      country:'India',
+      Pincode:this.shipping['pincode']
+     };
+
+      //purchase shipping
+      purchase.billingAddress={
+        doorAndStree:this.shipping['door'],
+        AreaAndLocality:this.shipping['area'],
+        landMark:this.shipping['landmark'],
+        City:this.shipping['city'],
+        State:this.shipping['state'],
+        country:'India',
+        Pincode:this.shipping['pincode']
+       };
+
+       //populate purchase order and Items
+       purchase.order=order;
+       purchase.orderItems=orderItems;
+
+
+
+              // call REST API via the CheckoutService
+              // this.backend.placeOrder(purchase).subscribe({
+              //   next: response => {
+              //     alert(`Your order has been received.\nOrder tracking number: ${response.orderTrackingNumber}`);
+
+              //     // reset cart
+              //     this.resetCart();
+              //   },
+
+              // })
+              console.log("navigation")
+              this.route.navigate(['/home/payment'])
+  }
+  resetCart() {
+  //reset cart data
+  this.cartService.cartItems = [];
+  this.cartService.totalPrice.next(0);
+  this.cartService.totalQuantity.next(0);
+
+  //reset the form
+  this.checkoutFormGroup.reset();
+
+  //navigat to the page
+  this.route.navigateByUrl("/home");
+  }
+
+  reviewCartDetails() {
+    //subscrite to the cartService.totalQuanity
+    this.cartService.totalQuantity.subscribe(
+      totalQuantity => this.totalQuantity = totalQuantity
+      )
+
+    //subscribe to the cartService.totalPrice
+    this.cartService.totalPrice.subscribe(
+      totalPrice => this.totalPrice = totalPrice
+    )}}

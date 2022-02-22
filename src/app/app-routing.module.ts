@@ -12,8 +12,12 @@ import { UserloginComponent } from './component/userlogin/userlogin.component';
 import { ProductlistComponent } from './component/productlist/productlist.component';
 import { ProductaddComponent } from './component/productadd/productadd.component';
 import { CheckoutComponent } from './component/checkout/checkout.component';
+import { CheckoutdialogComponent } from './component/checkoutdialog/checkoutdialog.component';
+import { PaymentComponent } from './component/payment/payment.component';
+import { CategorylistComponent } from './component/categorylist/categorylist.component';
 
 const routes: Routes = [
+  {path:"dialog",component:CheckoutdialogComponent},
   {path:'login',component:UserloginComponent},
   {path:"register",component:CreatuserComponent},
 
@@ -23,9 +27,15 @@ const routes: Routes = [
   {path:'useradd',component:UseraddComponent},
   {path:'useradd/:userId',component:UseraddComponent},
   {path:'createcategory',component:CreatecategoryComponent},
+  {path:'categorylist',component:CategorylistComponent},
+  {path:'createcategory/:id',component:CreatecategoryComponent},
   {path:"addproduct",component:ProductaddComponent},
   {path:"listproduct",component:ProductlistComponent},
   {path:"checkout",component:CheckoutComponent},
+  {path:"payment",component:PaymentComponent},
+
+
+
 ]},
 
 {path: '', redirectTo: '/login', pathMatch: 'full'},

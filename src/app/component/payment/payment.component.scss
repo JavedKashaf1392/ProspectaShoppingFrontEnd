@@ -1,0 +1,77 @@
+.deliverycheck{
+  font-size: 14px;
+  color: #38414a;
+  cursor: pointer;
+  font-weight: 500;
+}
+.deliverytext{
+  font-size: 14px;
+  color: #38414a;
+  cursor: pointer;
+  font-weight: 500;
+}
+.deliveryline{
+  width: 17px;
+  height: 1px;
+  background-color: rgb(141, 145, 153);
+  position: absolute;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.accordioinsize{
+  width: 568px;
+  height: 60px;
+}
+
+.picssize{
+  margin-top: 7px;
+  margin-bottom: 5px;
+  margin-right: 15px;
+}
+
+.acrdtext{
+  line-height: 18px;
+  color: rgb(141, 145, 153);
+  margin-top: 20px;
+  font-size: 14px;
+
+}
+.nettext{
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: rgb(98, 107, 127);
+  font-size: 14px;
+
+}
+.header{
+  font-size: 16px;
+  color: rgb(57, 66, 78);
+}
+
+.paycolor{
+  cursor: pointer;
+  border-radius: 4px;
+  border-color: rgb(57, 66, 78);
+  font-size: 14px;
+  background-color:rgb(112, 8, 149);
+  color: white;
+}
+
+
+
+.mat-expansion-panel {
+  background: rgb(255, 255, 255) !important;
+  border-bottom-color: rgb(239, 241, 242);
+  color: rgba(0,0,0,.87);
+}
+.amount{
+  font-size: 20px;
+  color: rgb(98, 107, 127);
+  margin-bottom: 15px;
+}
+.price{
+  font-size: 20px;
+  color: rgb(250, 128, 56);
+  font-weight: 600;
+}

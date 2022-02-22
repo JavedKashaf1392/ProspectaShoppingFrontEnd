@@ -3,9 +3,13 @@
     <div fxLayout="row wrap" style="background: #E5E5E5;" class="width100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" fxFill>
       <div fxLayout="column wrap" class="main-col-p width100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
         <div fxLayout="row wrap" style="padding-bottom: 2em;" fxLayoutAlign="space-between center" [fxShow]="true" [fxHide]="false">
-        <div fxLayout="column wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" (click)="onBack()"><img src="assets/Web/arrow-left.png">
-          <div fxLayout="column wrap" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
-            <div style="font-style: normal; font-weight: 600; font-size: 20px; line-height: 26px; display: flex; align-items: center; letter-spacing: 0.2px; color: #3D424E;">
+        <div fxLayout="column wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" (click)="onBack()">
+
+          <div fxLayout="row wrap" style="display: flex;" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
+            <div fxLayout="column wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <mat-icon class="bckcolor">west</mat-icon>
+            </div>&nbsp;
+            <div fxLayout="column wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"  style="font-style: normal; font-weight: 600; font-size: 20px; line-height: 26px; display: flex; align-items: center; letter-spacing: 0.2px; color: #3D424E;">
             Create User</div>
           </div>
         </div>
@@ -52,7 +56,7 @@
                     </mat-form-field>
                     </div>
 
-                    <div fxLayout="column wrap" style="width:150px;" fxLayoutAlign="center stretch" [fxShow]="true" [fxHide]="false">
+                    <div fxLayout="column wrap" style="width:150px;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
                       <mat-form-field style="width:150px;" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;always&apos;" [hideRequiredMarker]="false">
                         <input matInput placeholder="@gmail.com" value="@gmail.com" [required]="true" readonly="true" [disabled]="false">
                       </mat-form-field>
@@ -182,9 +186,6 @@
 
 
         </div>
-
-
-
       </div>
 
 

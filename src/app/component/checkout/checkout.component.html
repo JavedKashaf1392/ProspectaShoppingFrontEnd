@@ -3,6 +3,83 @@
     <div fxLayout="row wrap" style="background: rgb(255, 255, 255);" class="width100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" fxFill>
       <div fxLayout="column wrap"  class="main-col-p width100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
 
+
+
+        <div fxLayout="row wrap" style="padding-bottom: 3em; padding-top: 1em;" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false">
+          <div fxLayout="column wrap" fxLayoutAlign="start stretch"  [fxShow]="true" [fxHide]="false">
+            <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div fxLayout="column wrap" class="pointer" fxLayoutAlign="end center" [fxShow]="true" [fxHide]="false">
+                <mat-icon class="deliverycheck"><b>check</b></mat-icon>
+              </div>
+
+              <div fxLayout="column wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                <div class="deliverytext">
+                  1. Fill delivery Info
+                </div>
+              </div>
+
+              <div fxLayout="column wrap" style="padding-left: 1em;" class="pointer" fxLayoutAlign="center stretch" [fxShow]="true" [fxHide]="false">
+                <div class="deliveryline">
+                </div>
+              </div>
+            </div>
+        </div>
+
+
+
+         <!--secend line the data-->
+        <div fxLayout="column wrap" style="padding-left: 2em;" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+          <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+            <div fxLayout="column wrap" class="pointer" fxLayoutAlign="center stretch" [fxShow]="true" [fxHide]="false">
+              <mat-icon class="deliverycheck"><b>check</b></mat-icon>
+            </div>
+
+            <div fxLayout="column wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div class="deliverytext">
+                2. Choose payment mode
+              </div>
+            </div>
+
+            <div fxLayout="column wrap" style="padding-left: 1em;" class="pointer" fxLayoutAlign="center stretch" [fxShow]="true" [fxHide]="false">
+              <div class="deliveryline">
+              </div>
+            </div>
+          </div>
+      </div>
+
+
+       <!--third line the data-->
+       <div fxLayout="column wrap" style="padding-left: 2em;" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+        <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+          <div fxLayout="column wrap" class="pointer" fxLayoutAlign="center stretch" [fxShow]="true" [fxHide]="false">
+            <mat-icon class="deliverycheck"><b>check</b></mat-icon>
+          </div>
+
+          <div fxLayout="column wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+            <div class="deliverytext">
+              3. View payment status
+            </div>
+          </div>
+
+          <div fxLayout="column wrap" style="padding-left: 1em;" class="pointer" fxLayoutAlign="center stretch" [fxShow]="true" [fxHide]="false">
+            <div class="deliveryline">
+            </div>
+          </div>
+        </div>
+    </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
         <div fxLayout="row wrap" style="padding-bottom: 2em;" fxLayoutAlign="space-between center" [fxShow]="true" [fxHide]="false">
 
           <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
@@ -62,7 +139,7 @@
         </div>
         <mat-divider></mat-divider>
 
-        <div fxLayout="row wrap" style="padding-bottom: 2em;padding-top: 2em;" fxLayoutAlign="space-between center" [fxShow]="true" [fxHide]="false">
+        <div #dialog fxLayout="row wrap" style="padding-bottom: 2em;padding-top: 2em;" fxLayoutAlign="space-between center" [fxShow]="true" [fxHide]="false">
 
           <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
             <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
@@ -104,7 +181,7 @@
               </div>
 
                 <div class="login" style="width: 100%;padding-top: 0.4em;padding-bottom: 0.4em;" fxLayout="row wrap"  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
-                  <mat-checkbox class="chekz" [(ngModel)]="checked">
+                  <mat-checkbox class="chekz" (change)="SameAsShippingAddress($event)">
                     <div class="chekztext">
                       Same as Shipping
                     </div>
@@ -131,7 +208,14 @@
         </div>
 
 
+
+
         <div fxLayout="row wrap" style="padding-bottom: 2em;" fxLayoutAlign="end end" [fxShow]="true" [fxHide]="false">
+
+
+          <div fxLayout="row wrap" fxLayoutGap="0.5em" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" id="card-element">
+            hi
+        </div>
 
           <div fxLayout="column wrap" fxLayoutAlign="end end" [fxShow]="true" [fxHide]="false">
             <div fxLayout="row wrap" fxLayoutGap="0.5em" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
@@ -152,6 +236,36 @@
             </div>
             </div>
 
+            <div fxLayout="row wrap" fxLayoutGap="0.5em"  style="width: 100%; padding-top: 0.5em;" fxFlex="100%" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div fxLayout="column wrap" fxFlex="60%"  class="pointer" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+                <div class="pay" style="width: 100%;" fxLayout="row wrap"  fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+                 Total Quantity
+                </div>
+              </div>
+
+              <div  fxLayout="column wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                <div class="paymoney">
+                  {{totalQuantity}}
+                </div>
+              </div>
+            </div>
+
+            <div fxLayout="row wrap" fxLayoutGap="0.5em"  style="width: 100%; padding-top: 0.5em;" fxFlex="100%" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div fxLayout="column wrap" fxFlex="60%"  class="pointer" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+                <div class="pay" style="width: 100%;" fxLayout="row wrap"  fxLayoutAlign="start end" [fxShow]="true" [fxHide]="false">
+                 <mat-icon style="font-size: 30px;font-weight: 800;">
+                  local_shipping
+                 </mat-icon>&nbsp;&nbsp;&nbsp;Delivery Charges
+                </div>
+              </div>
+
+              <div  fxLayout="column wrap" class="pointer" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false">
+                <div class="paymoney">
+                  &#8377;40
+                </div>
+              </div>
+            </div>
+
 
         </div>
         </div>
@@ -169,7 +283,7 @@
             </div>
 
             <div fxLayout="row wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
-              <button mat-button class="paytbtn" (click)="back()">
+              <button mat-button class="paytbtn" (click)="payment()" >
                 <mat-icon class="paycolor">payments</mat-icon>
                 Choose Payment Method</button>
             </div>

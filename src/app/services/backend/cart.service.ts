@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
-import { Cartitem } from 'src/app/component/cartitem';
+import { BehaviorSubject, Subject } from 'rxjs';
+import { Cartitem } from 'src/app/component/model/cartitem';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +12,15 @@ export class CartService {
 
 
   cartItems:Cartitem[]=[];
-  totalPrice:Subject<number> = new Subject<number>();
-  totalQuantity:Subject<number> = new Subject<number>();
+  // totalPrice:Subject<number> = new Subject<number>();
+  // totalQuantity:Subject<number> = new Subject<number>();
+
+   totalPrice:Subject<number> = new BehaviorSubject<number>(0);
+  totalQuantity:Subject<number> = new BehaviorSubject<number>(0);
 
   constructor() { }
+
+  cartSubject = new Subject<any>();
 
   addToCart(theCartItem:Cartitem){
 
@@ -41,7 +46,6 @@ export class CartService {
 
    // find the item in the cart based on item id
 
-
    //check if we found it
   }
   computeCartTotals() {
@@ -63,8 +67,8 @@ export class CartService {
    console.log("Content of the cart");
    for(let tempCartItem of this.cartItems){
      const subTotalPrice = tempCartItem.quantity * tempCartItem.productPrice;
-    //  console.log(`name : ${tempCartItem.productName},quantity=${tempCartItem.quantity},
-    //  price=${tempCartItem.productPrice},subTotalPrice=${subTotalPrice}`);
+     console.log(`name : ${tempCartItem.productName},quantity=${tempCartItem.quantity},
+     price=${tempCartItem.productPrice},subTotalPrice=${subTotalPrice}`);
    }
   }
 

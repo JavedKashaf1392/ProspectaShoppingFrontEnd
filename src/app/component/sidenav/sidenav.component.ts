@@ -53,7 +53,6 @@ export class SidenavComponent implements OnInit {
 
   }
   getClass() {
-    console.log("expand",this.genService.activeTab);
     return {
       activeSideNavlist: true,
         expanded: this.expanded,

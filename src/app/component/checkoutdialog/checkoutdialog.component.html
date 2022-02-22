@@ -1,9 +1,9 @@
-
 <div fxLayout="row wrap" class="width100" style="height: 100vh;" class="main"  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
   <div fxLayout="column wrap" class="width100"  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
     <div fxLayout="row wrap" style="background: rgb(255, 255, 255);" class="width100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" fxFill>
-      <div *ngIf="action=='shipping'" fxLayout="column wrap" class="width100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
-        <form [formGroup]='checkoutFormGroup'>
+      <form [formGroup]='checkoutFormGroup'>
+      <div formGroupName='shippingAddress' *ngIf="action=='shipping'" fxLayout="column wrap" class="width100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+
         <mat-dialog-content >
         <div fxLayout="row wrap" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false" style="height: 66.5px;">
 
@@ -143,8 +143,8 @@
                     </div>
                     <div fxLayout="column wrap" fxLayoutGap="1em" class="" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
                       <mat-form-field appearance="outline" style="width: 100%;">
-                        <mat-select placeholder="select state"  formControlName="state" disableOptionCentering>
-                          <mat-option *ngFor="let state of states;  let indexOfelement=index;" [value]="state">
+                        <mat-select placeholder="select state"  formControlName="state">
+                          <mat-option *ngFor="let state of states;  let indexOfelement=index;" [value]="state.id">
                             {{state.name}}
                           </mat-option>
                         </mat-select>
@@ -188,22 +188,12 @@
                     </div>
 
                   </div>
-
-
-
-
-
-
-
         </div>
         <mat-divider></mat-divider>
-
-
-
       </mat-dialog-content>
-    </form>
+
       <mat-dialog-actions align="center">
-        <button class="sbmButton" [mat-dialog-close]="true" cdkFocusInitial (click)="save()">
+        <button class="sbmButton" [mat-dialog-close]="true" cdkFocusInitial (click)="shipping()">
 
           <div class="submit">
             Submit
@@ -215,14 +205,15 @@
 
 
         <!--Billing Address-->
-        <div *ngIf="action=='billing'" fxLayout="column wrap" class="width100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
-          <form [formGroup]='checkoutFormGroup'>
+        <div formGroupName='billingAddress' *ngIf="action=='billing'" fxLayout="column wrap" class="width100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+
           <mat-dialog-content >
           <div fxLayout="row wrap" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false" style="height: 66.5px;">
 
             <div fxLayout="column wrap"  fxFlex="100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
               <div fxLayout="row wrap"  style="height: 65.5px;" fxLayoutGap="1em" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
                 <div fxLayout="row wrap" fxFlex="82" class="pointer" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+
                 <div class="shipping"  fxLayout="row wrap"  fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
                   {{name}}
                 </div>
@@ -357,7 +348,7 @@
                       <div fxLayout="column wrap" fxLayoutGap="1em" class="" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
                         <mat-form-field appearance="outline" style="width: 100%;">
                           <mat-select placeholder="select state" formControlName="state" disableOptionCentering>
-                            <mat-option *ngFor="let state of states;  let indexOfelement=index;" [value]="state">
+                            <mat-option *ngFor="let state of states;  let indexOfelement=index;" [value]="state.id">
                               {{state.name}}
                             </mat-option>
                           </mat-select>
@@ -407,10 +398,8 @@
 
 
         </mat-dialog-content>
-      </form>
         <mat-dialog-actions align="center">
-          <button class="sbmButton" [mat-dialog-close]="true" cdkFocusInitial (click)="billing()">
-
+          <button class="sbmButton" [mat-dialog-close]="true" cdkFocusInitial (click)="SaveFormData()">
             <div class="submit">
               Submit
             </div>
@@ -419,6 +408,7 @@
 
           </div>
 
+        </form>
         </div>
         </div>
         </div>

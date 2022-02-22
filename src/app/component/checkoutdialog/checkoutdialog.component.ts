@@ -1,6 +1,11 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, EventEmitter, Inject, OnInit } from '@angular/core';
+import { async } from '@angular/core/testing';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
+import { iif, Subscription } from 'rxjs';
+import { GenericService } from 'src/app/services/generic/generic.service';
+import { SharedService } from 'src/app/services/shared/shared.service';
 import { CheckoutComponent } from '../checkout/checkout.component';
 
 @Component({
@@ -10,27 +15,41 @@ import { CheckoutComponent } from '../checkout/checkout.component';
 })
 export class CheckoutdialogComponent implements OnInit {
 
+
+
   checkoutFormGroup:FormGroup;
+  onSave = new EventEmitter();
+  onbilling = new EventEmitter();
   action: any;
   name: any;
   states:any=[];
-
-
+  checked:boolean=false;
+  isVisible:boolean=false;
   constructor(private formBuilder:FormBuilder,
+    public generic:GenericService,
+    private sharedService:SharedService,
+    private aRoute:ActivatedRoute,
     public dialogRef: MatDialogRef<CheckoutComponent>,
         @Inject(MAT_DIALOG_DATA)
-        public data ) { }
+        public data ) {
+
+         }
+
 
   ngOnInit(): void {
-    this.statesdropdown();
+    this.sameAsShipping();
+    this.statesArray();
     this._formBuilder();
+
+    // this.SaveFormData();
+
+
     this.action=this.data['action'];
     this.name=this.data['name'];
-
-    console.log("data",this.action);
   }
    _formBuilder(){
     this.checkoutFormGroup=this.formBuilder.group({
+     shippingAddress:this.formBuilder.group({
       Name:[''],
       companyName:[''],
       MobileNumber:[''],
@@ -40,22 +59,31 @@ export class CheckoutdialogComponent implements OnInit {
       city:[''],
       state:[''],
       pincode:['']
+     }),
+     billingAddress:this.formBuilder.group({
+      Name:[''],
+      companyName:[''],
+      MobileNumber:[''],
+      door:[''],
+      area:[''],
+      landmark:[''],
+      city:[''],
+      state:[''],
+      pincode:['']
+     })
     })
    }
 
 
-   save(){
-    let raw = this.checkoutFormGroup.value;
-    console.log("checkout form",raw);
+   shipping(){
 
-
+    console.log("form reseting",this.checkoutFormGroup);
+   let shipping=this.checkoutFormGroup.controls.shippingAddress.value;
+   this.onSave.emit(shipping)
+   this.generic.shipping=shipping;
    }
 
-   billing(){
-
-   }
-
-   statesdropdown(){
+   statesArray(){
     this.states=[
       {id:1,name:"Andhra Pradesh"},
       {id:2,name:"Arunachal Pradesh"},
@@ -87,4 +115,33 @@ export class CheckoutdialogComponent implements OnInit {
       {id: 28,name:"West Bengal"},
     ];
    }
+
+  sameAsShipping(){
+    this.sharedService.isVisibleSource.subscribe(async (isVisible) =>{
+      let Visible=isVisible;
+      if(Visible==true){
+        await this.checkoutFormGroup;
+        console.log("calling",this.checkoutFormGroup);
+        this.checkoutFormGroup?.controls?.billingAddress?.setValue(this.generic.shipping);
+        this.SaveFormData(Visible);
+      }if(Visible==false){
+        this.checkoutFormGroup?.controls?.billingAddress.setValue(this.generic.billing);
+        this.SaveFormData(Visible);
+      }
+    })
+  }
+
+  SaveFormData(Visible?){
+
+    if(Visible==false){
+      console.log("yes i am here")
+    let billing=this.checkoutFormGroup?.controls?.billingAddress?.reset();
+    }
+    if(Visible==true){
+      let billing=this.checkoutFormGroup.controls.shippingAddress.value;
+      this.onbilling.emit(billing)
+      this.generic.billing=billing;
+    }
+
+  }
 }

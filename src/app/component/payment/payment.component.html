@@ -1,0 +1,257 @@
+
+<div fxLayout="row wrap" class="width100" style="height: 100vh;"  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+  <div fxLayout="column wrap" class="width100"  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+    <div fxLayout="row wrap" style="background: rgb(255, 255, 255);" class="width100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" fxFill>
+      <div fxLayout="column wrap"  class="main-col-p width100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+
+        <div fxLayout="row wrap" style="padding-bottom: 2em;" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false">
+
+          <div fxLayout="column wrap" fxLayoutAlign="start stretch"  [fxShow]="true" [fxHide]="false">
+            <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div fxLayout="column wrap" class="pointer" fxLayoutAlign="end center" [fxShow]="true" [fxHide]="false">
+                <mat-icon class="deliverycheck"><b>check</b></mat-icon>
+              </div>
+
+              <div fxLayout="column wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                <div class="deliverytext">
+                  1. Fill delivery Info
+                </div>
+              </div>
+
+              <div fxLayout="column wrap" style="padding-left: 1em;" class="pointer" fxLayoutAlign="center stretch" [fxShow]="true" [fxHide]="false">
+                <div class="deliveryline">
+                </div>
+              </div>
+            </div>
+        </div>
+
+
+
+         <!--secend line the data-->
+        <div fxLayout="column wrap" style="padding-left: 2em;" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+          <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+            <div fxLayout="column wrap" class="pointer" fxLayoutAlign="center stretch" [fxShow]="true" [fxHide]="false">
+              <mat-icon class="deliverycheck"><b>check</b></mat-icon>
+            </div>
+
+            <div fxLayout="column wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div class="deliverytext">
+                2. Choose payment mode
+              </div>
+            </div>
+
+            <div fxLayout="column wrap" style="padding-left: 1em;" class="pointer" fxLayoutAlign="center stretch" [fxShow]="true" [fxHide]="false">
+              <div class="deliveryline">
+              </div>
+            </div>
+          </div>
+      </div>
+
+
+       <!--third line the data-->
+       <div fxLayout="column wrap" style="padding-left: 2em;" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+        <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+          <div fxLayout="column wrap" class="pointer" fxLayoutAlign="center stretch" [fxShow]="true" [fxHide]="false">
+            <mat-icon class="deliverycheck"><b>check</b></mat-icon>
+          </div>
+
+          <div fxLayout="column wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+            <div class="deliverytext">
+              3. View payment status
+            </div>
+          </div>
+
+          <div fxLayout="column wrap" style="padding-left: 1em;" class="pointer" fxLayoutAlign="center stretch" [fxShow]="true" [fxHide]="false">
+            <div class="deliveryline">
+            </div>
+          </div>
+        </div>
+    </div>
+
+        </div>
+
+
+
+
+        <!--total price-->
+        <div fxLayout="row wrap" style="padding-bottom: 2em;" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false">
+          <div fxLayout="column wrap" fxLayoutAlign="start stretch"  [fxShow]="true" [fxHide]="false">
+            <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div fxLayout="column wrap" style="padding-left: 1.5em;" class="pointer" fxLayoutAlign="center stretch" [fxShow]="true" [fxHide]="false">
+                <div class="amount" style="display: flex;">
+                  Total amount:&nbsp;<div class="price">
+                    &#8377;{{totalPrice}}
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+
+
+
+         <!--accordioni-->
+        <div fxLayout="row wrap" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false">
+          <div fxLayout="column wrap" fxLayoutAlign="start stretch"  [fxShow]="true" [fxHide]="false">
+            <div fxLayout="row wrap"  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <mat-accordion class="example-headers-align" class="accordioinsize" multi>
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+
+                      <div class="header">
+                        Card
+                      </div>
+                    </mat-panel-title>
+                    <mat-panel-description>
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                   <!-- put your data here-->
+                   <div fxLayout="row wrap"  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                    <button mat-button class="paycolor">
+                      PayNow</button>
+                  </div>
+                  <div fxLayout="row wrap" style="padding-top: 0.5em;"  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                    <img  class="picssize" src="../../../assets/visa.svg" style="width: 35px;
+                    height: 13px;">
+
+                    <img class="picssize" src="../../../assets/mastercard.svg" style="width: 35px;
+                    height: 13px;">
+
+                    <img class="picssize" src="../../../assets/american-express.svg" style="width: 35px;
+                    height: 13px;">
+
+                   <img class="picssize" src="../../../assets/mastercard.svg" style="width: 35px;
+                   height: 13px;">
+                   </div>
+
+                   <div fxLayout="row wrap"  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                     <div class="acrdtext">
+                      After selecting the "Pay Now" button, your payment will be handled by a secure Payment Gateway.
+                     </div>
+                  </div>
+                </mat-expansion-panel>
+
+
+
+                 <!--secend accordion-->
+                 <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+
+                      <div class="header">
+                        Net banking
+                      </div>
+                    </mat-panel-title>
+                    <mat-panel-description>
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                   <!-- put your data here-->
+                   <div fxLayout="row wrap"  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                    <button mat-button class="paycolor">
+                      PayNow</button>
+                  </div>
+                  <div fxLayout="row wrap" style="padding-top: 0.5em;"  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                    <img  class="picssize" src="../../../assets/sbi.jpg" style="width: 36px;
+                    height: 13px;">
+
+                    <img class="picssize" src="../../../assets/icici.jpg" style="width: 36px;
+                    height: 13px;">
+
+                    <img class="picssize" src="../../../assets/citibank.jpg" style="width: 36px;
+                    height: 13px;">
+
+                   <img class="picssize" src="../../../assets/canara.jpg" style="width: 36px;
+                   height: 13px;">
+                   </div>
+                   <div fxLayout="row wrap"  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                     <div class="nettext">
+                      + 20 more banks supported.
+                     </div>
+
+                   </div>
+
+                   <div fxLayout="row wrap"  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                     <div class="acrdtext">
+                      After selecting the "Pay Now" button, your payment will be handled by a secure Payment Gateway.
+                     </div>
+                  </div>
+                </mat-expansion-panel>
+
+
+
+
+
+
+
+
+                 <!--third accordion-->
+                 <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      <div class="header">
+                        Wallets
+                      </div>
+                    </mat-panel-title>
+                    <mat-panel-description>
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                   <!-- put your data here-->
+                   <div fxLayout="row wrap"  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                    <button mat-button class="paycolor">
+                      PayNow</button>
+                  </div>
+                   <div fxLayout="row wrap"  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                     <div class="acrdtext">
+                      After selecting the "Pay Now" button, your payment will be handled by a secure Payment Gateway.
+                     </div>
+                  </div>
+                </mat-expansion-panel>
+
+
+
+                <!--fourth accordion-->
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      <div class="header">
+                        UPI
+                      </div>
+                    </mat-panel-title>
+                    <mat-panel-description>
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                   <!-- put your data here-->
+                  <div fxLayout="row wrap"  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                    <button mat-button class="paycolor">
+                      PayNow</button>
+                  </div>
+                   <div fxLayout="row wrap"  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                     <div class="acrdtext">
+                      After selecting the "Pay Now" button, your payment will be handled by a secure Payment Gateway.
+                     </div>
+                  </div>
+                </mat-expansion-panel>
+                </mat-accordion>
+
+            </div>
+        </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        </div>
+        </div>
+        </div>
