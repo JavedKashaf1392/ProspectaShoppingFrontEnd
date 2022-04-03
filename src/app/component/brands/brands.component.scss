@@ -1,0 +1,44 @@
+.imgdata{
+  width: 100px;
+  height: 80px;
+}
+.category{
+  background-color: rgb(238, 238, 238);
+  padding: 4px 15px 3px 15px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+hr{
+    opacity: 0.4;
+    width: 100%;
+    color:rgb(204, 200, 200);
+    margin-bottom: 7px;
+    margin-top: 2em;
+  }
+
+  .branch-heading{
+    text-align: left;
+    padding-left:15px;
+    width: 87%;
+    text-align: left;
+    padding-left: 15px;
+    margin-top: 35px;
+  }
+
+$color: #6cb33f;
+$fontsize: 21px;
+$fontweight:500;
+$bgcolor:#6cb33f;
+
+  .brand{
+    color: $color;
+    font-size: $fontsize;
+    font-weight:$fontweight;
+  }
+
+.addBranch{
+ background-color: $bgcolor;
+ font-size: 16px;
+ color: white;
+ font-weight: $fontweight;
+}

@@ -40,7 +40,11 @@ export class BackendService {
     return this.http.get(url);
   }
 
-  getAllCategoriesForms():Observable<any>{
+   getAllCategoriesForms1(){
+    return this.http.get<any>(`${environment.properties.baseURL}category/categoriesForm`)
+  }
+
+   getAllCategoriesForms(){
     return this.http.get<any>(`${environment.properties.baseURL}category/categoriesForm`)
   }
 
@@ -59,6 +63,9 @@ export class BackendService {
     const headers=new HttpHeaders({'Access-Control-Allow-Origin':'*'});
     return this.http.post(url,payload,{headers:headers});
   }
+
+
+
 
   getUser(id) {
     let url = `${environment.properties.baseURL}user/${id}`;
@@ -141,6 +148,42 @@ export class BackendService {
   getCategory(id){
     return this.http.get(`${environment.properties.baseURL}category/${id}`);
   }
+
+
+
+  //Brands Details is here
+  getAllBrands() {
+    let url=`${environment.properties.baseURL}brand/brands`;
+    return this.http.get(url);
+  }
+
+
+
+  saveBrand(brand):Observable<any>{
+    let url = `${environment.properties.baseURL}brand/save`;
+    return this.http.post(url,brand,{responseType:"text"});
+   }
+
+   updateBrand(brand){
+    let url = `${environment.properties.baseURL}brand/update`;
+    return this.http.post(url,brand,{responseType:"text"});
+   }
+
+   //uploading the display picture
+   uploadImage1(formData) {
+    let url=`${environment.properties.baseURL}brand/savefile`;
+    return this.http.post(url,formData,{responseType:"text"});
+  }
+     //getoneBrand
+     getOneBrand(id) {
+      let url=`${environment.properties.baseURL}brand/${id}`;
+      return this.http.get(url);
+    }
+
+    deleteBrand(id) {
+      let url=`${environment.properties.baseURL}brand/delete/${id}`;
+      return this.http.get(url);
+    }
 
   openSnackBar(msg, icon?, width?, template?, timeInterval?) {
     let sweetObj: any = {

@@ -32,7 +32,6 @@ import { HttpintercepterInterceptor } from './services/intercepter/httpintercept
 import { AuthenticationguardGuard } from './services/guard/authenticationguard.guard';
 import { AuthenticationService } from './services/authentication/authentication.service';
 import { CreatecategoryComponent } from './component/createcategory/createcategory.component';
-import { ListcategoryComponent } from './component/listcategory/listcategory.component';
 import { CreatuserComponent } from './component/creatuser/creatuser.component';
 import { ProductlistComponent } from './component/productlist/productlist.component';
 import { ProducteditComponent } from './component/productedit/productedit.component';
@@ -48,7 +47,12 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { PaymentComponent } from './component/payment/payment.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { CategorylistComponent } from './component/categorylist/categorylist.component';
-
+import { BrandsComponent } from './component/brands/brands.component';
+import { AddbrandComponent } from './component/addbrand/addbrand.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { CustomcheckboxComponent } from './config/customcheckbox/customcheckbox.component';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 
@@ -64,7 +68,6 @@ import { CategorylistComponent } from './component/categorylist/categorylist.com
     SidenavComponent,
     FileuploadComponent,
     CreatecategoryComponent,
-    ListcategoryComponent,
     CreatuserComponent,
     ProductlistComponent,
     ProductaddComponent,
@@ -74,9 +77,13 @@ import { CategorylistComponent } from './component/categorylist/categorylist.com
     CheckoutComponent,
     CheckoutdialogComponent,
     PaymentComponent,
-    CategorylistComponent
+    CategorylistComponent,
+    BrandsComponent,
+    AddbrandComponent,
+    CustomcheckboxComponent
   ],
   imports: [
+    MatMenuModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -99,7 +106,9 @@ import { CategorylistComponent } from './component/categorylist/categorylist.com
     MatDividerModule,
     MatDialogModule,
     MatCheckboxModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatSlideToggleModule,
+    NgxMatSelectSearchModule
 
 
   ],

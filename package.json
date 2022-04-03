@@ -24,6 +24,7 @@
     "@auth0/angular-jwt": "^5.0.2",
     "lodash": "^4.17.21",
     "lodash.clonedeep": "^4.5.0",
+    "ngx-mat-select-search": "^4.0.2",
     "rxjs": "~6.6.0",
     "stripe": "^8.194.0",
     "sweetalert2": "^11.1.9",

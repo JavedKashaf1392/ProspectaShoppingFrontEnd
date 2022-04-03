@@ -15,6 +15,8 @@ import { CheckoutComponent } from './component/checkout/checkout.component';
 import { CheckoutdialogComponent } from './component/checkoutdialog/checkoutdialog.component';
 import { PaymentComponent } from './component/payment/payment.component';
 import { CategorylistComponent } from './component/categorylist/categorylist.component';
+import { BrandsComponent } from './component/brands/brands.component';
+import { AddbrandComponent } from './component/addbrand/addbrand.component';
 
 const routes: Routes = [
   {path:"dialog",component:CheckoutdialogComponent},
@@ -33,6 +35,9 @@ const routes: Routes = [
   {path:"listproduct",component:ProductlistComponent},
   {path:"checkout",component:CheckoutComponent},
   {path:"payment",component:PaymentComponent},
+  {path:"brandlist",component:BrandsComponent},
+  {path:"addbrand",component:AddbrandComponent},
+  {path:"addbrand/:brandId",component:AddbrandComponent},
 
 
 

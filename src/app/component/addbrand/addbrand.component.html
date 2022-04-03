@@ -1,0 +1,227 @@
+<div fxLayout="row wrap" class="width100"  fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
+  <div fxLayout="column wrap" class="width100" style="height: 100vh;" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
+    <div fxLayout="row wrap" class="margin" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
+
+      <!-- title of the page -->
+      <div fxLayout="row wrap"  class="title width100" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
+      <div  fxLayout="column wrap" fxFlex="85" (click)="brandsList()" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
+        <div fxLayout="row wrap"  class="width100" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
+        <div fxLayout="column wrap" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
+          <mat-icon class="back">keyboard_backspace</mat-icon>
+        </div>&nbsp;
+        <div fxLayout="column wrap" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
+            Brand Register
+         </div>
+      </div>
+    </div>
+
+      <div fxLayout="column wrap" fxFlex="8" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false">
+        <button class="addbtn" (click)="AddBrands()" mat-raised-button>
+          <mat-icon>add</mat-icon>{{brandId ?"Update Brand" : "Add Brand"}}
+        </button>
+       </div>
+      </div>
+
+      <hr>
+
+
+      <!-- body data is here -->
+      <div fxLayout="row wrap" class="width100" fxLayoutAlign="center start" [fxShow]="true" [fxHide]="false">
+
+          <form [formGroup]='Brandform' class="myform">
+            <div fxLayout="row wrap" class="width100" fxLayoutAlign="center start" [fxShow]="true" [fxHide]="false">
+        <div fxLayout="column wrap" class="colmdesgn" fxFlex="30" fxLayoutAlign="center start" [fxShow]="true" [fxHide]="false">
+
+      <div  fxLayout="row wrap" class="width100" fxLayoutAlign="center start" [fxShow]="true" [fxHide]="false">
+        <div fxLayout="row wrap" fxFlex="100" fxLayoutAlign="center start" [fxShow]="true" [fxHide]="false">
+          <mat-form-field appearance="outline" style="width: 100%;" class="form" >
+            <mat-label>Brand Name</mat-label>
+            <input matInput formControlName='name' placeholder="Brand Name">
+            <mat-icon matPrefix>sentiment_very_satisfied</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+
+
+      <div  fxLayout="row wrap" class="width100" fxLayoutAlign="center start" [fxShow]="true" [fxHide]="false">
+        <div fxLayout="row wrap" fxFlex="100" fxLayoutAlign="center start" [fxShow]="true" [fxHide]="false">
+          <mat-form-field appearance="outline" style="width: 100%;" class="form" >
+            <mat-label>Brand Alias Name</mat-label>
+            <input formControlName='BrandAlias' matInput placeholder="Brand Name">
+            <mat-icon matPrefix>sentiment_very_satisfied</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+
+       <div  fxLayout="row wrap" class="width100" fxLayoutAlign="center start" [fxShow]="true" [fxHide]="false">
+        <div fxLayout="row wrap" fxFlex="100" fxLayoutAlign="center start" [fxShow]="true" [fxHide]="false">
+           <mat-form-field appearance="outline" style="width: 100%;" class="form">
+            <mat-select formControlName="selecteCategory"  placeholder="Select Category" [multiple]="true" #multiSelect>
+              <mat-option>
+              <ngx-mat-select-search [showToggleAllCheckbox]="true" (toggleAll)="toggleSelectAll($event)"  [formControl]="categoryFilterCtrl" placeholderLabel="Search" [toggleAllCheckboxTooltipMessage]="tooltipMessage"
+              [toogleAllCheckboxTooltipPosition]="'above'" noEntriesFoundLabel="&apos;no records found&apos;"></ngx-mat-select-search>
+            </mat-option>
+              <mat-option  *ngFor="let category of categorylistArray | async " [value]="category.id">
+                <span>{{category.name}}</span>
+              </mat-option>
+            </mat-select>
+            <mat-icon matPrefix>sentiment_very_satisfied</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+
+
+      <div  fxLayout="row wrap" class="width100" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
+        <div fxLayout="row wrap" class="width100" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
+          <div fxLayout='column wrap' class="mat" (click)='file.click()' fxLayoutAlign='start strech' [fxShow]='true'
+          [fxHide]='false'>
+          <input type="file" hidden name="file" (change)="handleFileInput($event) " #file/>
+          <button mat-raised-button class="btncolor">
+            <mat-icon>north</mat-icon>upload Image</button>
+          </div>
+          <div *ngIf="imageExist==true" fxLayout='column wrap' style="margin-left: 3px;" fxLayoutAlign='center center' [fxShow]='true' [fxHide]='false'>
+        {{fileName}}
+          </div>
+          <div *ngIf="imageExist==true" fxLayout="row wrap" class="width100 imageclz" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
+            <img width="100%" [src]="imageshow" class="image">
+          </div>
+
+        </div>
+      </div>
+
+
+      <div  fxLayout="row wrap" class="width100" style="padding-top: 0.5em;" fxLayoutAlign="center start" [fxShow]="true" [fxHide]="false">
+        <div fxLayout="row wrap" fxFlex="100" fxLayoutAlign="center start" [fxShow]="true" [fxHide]="false">
+
+   <div style="width: 100%;display: flex;" >
+  <div fxLayout="column wrap" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
+      <app-customcheckbox formControlName="enabled"> </app-customcheckbox>
+     </div>
+
+  <div fxLayout="column wrap" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false">
+    <span class="toogleText">Brand Activation</span>
+  </div>
+
+</div>
+</div>
+
+        </div>
+      </div>
+
+
+<hr>
+
+<!-- heading fo the row -->
+  <div fxLayout="row wrap" style="margin-left: 2em;margin-right: 2em;margin-bottom: 0.3em; margin-top: 2em;" class="width100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+    <div fxLayout="column wrap" class="brand" fxFlex="90%"  fxLayoutAlign="center start" [fxShow]="true" [fxHide]="false">
+      <div>Main Brand</div>
+    </div>
+    <div fxLayout="column wrap" fxFlex="9%" fxLayoutAlign="end center" [fxShow]="true" [fxHide]="false">
+      <button class="addBranch" mat-stroked-button (click)="addNewBrand()">
+        <mat-icon>add</mat-icon>
+         Branch
+       </button>
+    </div>
+</div>
+
+
+<div fxLayout="row wrap" style="margin-left: 2em;margin-right: 2em;" class="width100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+  <div fxLayout="row wrap"   class="width100 mainrow" fxLayoutAlign="center start" [fxShow]="true" [fxHide]="false">
+
+    <div fxLayout="column wrap" fxFlex="5" class="colmn1" fxLayoutAlign="center start" [fxShow]="true" [fxHide]="false">
+      <div>SI.No</div>
+     </div>
+
+  <div fxLayout="column wrap" fxFlex="18" class="colmn1" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false">
+   <div>Brand Name</div>
+  </div>
+
+  <div fxLayout="column wrap" fxFlex="18" class="colmn1" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false">
+    <div>Brand Alias</div>
+   </div>
+
+   <div fxLayout="column wrap" fxFlex="18" class="colmn1" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false">
+    <div>Category Name</div>
+   </div>
+
+   <div fxLayout="column wrap" fxFlex="18" class="colmn1" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false">
+    <div>Brand Picture</div>
+   </div>
+
+   <div fxLayout="column wrap" fxFlex="18" class="colmn1" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false">
+    <div>Brand Active</div>
+   </div>
+
+   <div fxLayout="column wrap" fxFlex="5" class="colmn1" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false">
+    <div>Action</div>
+   </div>
+</div>
+</div>
+
+
+<div letfxLayout="row wrap" formArrayName="brandArray" *ngFor="let item of Brandform.get('brandArray')['controls'];let i = index"  class="width100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+  <div  fxLayout="row wrap"  style="margin-left: 2em;margin-right: 2em;" [formGroupName]="i" class="width100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+    <div fxLayout="row wrap"  class="width100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+    <div fxLayout="column wrap" fxFlex="5" class="colmn" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false">
+      <div>{{i+1}}</div>
+     </div>
+
+
+
+     <div fxLayout="column wrap" fxFlex="18" class="colmn" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false">
+      <mat-form-field appearance="outline" style="width: 100%;" class="form" >
+        <input formControlName='brandName' matInput placeholder="Brand Name">
+      </mat-form-field>
+     </div>
+
+
+     <div fxLayout="column wrap" fxFlex="18" class="colmn" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false">
+      <mat-form-field appearance="outline" style="width: 100%;" class="form" >
+        <input formControlName='brandAlias' matInput placeholder="Brand Alias Name">
+      </mat-form-field>
+     </div>
+
+
+     <div fxLayout="column wrap" fxFlex="18" class="colmn" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false">
+      <mat-form-field appearance="outline" style="width: 100%;" class="form" >
+        <input formControlName='categoryName' matInput placeholder="Brand Category">
+      </mat-form-field>
+     </div>
+
+
+     <div fxLayout="column wrap" fxFlex="18" class="colmn" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false">
+      <mat-form-field appearance="outline" style="width: 100%;" class="form">
+        <input formControlName='picture' matInput placeholder="Brand Picture">
+      </mat-form-field>
+     </div>
+
+
+     <div fxLayout="column wrap" fxFlex="18" class="colmn" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false">
+      <mat-form-field appearance="outline" style="width: 100%;" class="form">
+        <input formControlName='brandActive' matInput placeholder="Brand Active">
+      </mat-form-field>
+     </div>
+
+
+     <div fxLayout="column wrap" fxFlex="5" class="colmn" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false">
+      <mat-icon  (click)="deleteBranch(i,item)" class="cancel">cancel</mat-icon>
+     </div>
+
+
+
+
+
+
+
+    </div>
+    </div>
+    </div>
+
+  </div>
+</form>
+
+
+</div>
+    </div>
+        </div>
+      </div>

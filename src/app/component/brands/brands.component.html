@@ -1,43 +1,18 @@
-<!-- <table class="custom-table">
-  <tr>
-    <th style="width:7%">SI No.</th>
-    <th>Region of Sale</th>
-    <th>Country of Sales</th>
-    <th>Inventory List</th>
-    <th>Status</th>
-    <th>comments</th>
-  </tr>
-  <tbody>
-    <tr *ngFor="let item of oldChemicalInventoryArr;let i=index;" class="formulaChange">
-      <td style="width:5%;text-align:center;">{{i+1}}</td>
-      <td><label class="pincode">{{item.regionName}}</label></td>
-      <td><label class="pincode">{{item.countryName}}</label></td>
-      <td><label class="pincode">{{item.chemicalInventoryText}}</label></td>
-      <td><label class="pincode">{{item.statuses}}</label></td>
-      <td>
-        <mat-form-field [appearance]="&apos;outline&apos;" style="background-color:#e8e8e8;">
-          <textarea matInput [style.color]="'#000000'" cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="10">{{item.comment}}</textarea>
-        </mat-form-field>
-      </td>
-    </tr>
-  </tbody>
-</table> -->
 
-
-<div fxLayout="row wrap" style="width:100vh; height: 100vw;" fxlayoutAlign="start strech"  [fxShow]="true" [fxHide]="false" fxFill>
-  <div fxLayout="column wrap" class="userlist-col"  fxFlex="100" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
-    <div fxLayout="row wrap" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
+<div fxLayout="row wrap" style="width:100%; height: 100vh;" fxlayoutAlign="start strech"  [fxShow]="true" [fxHide]="false" fxFill>
+  <div fxLayout="column wrap" style="height: 100vh;" class="userlist-col"  fxFlex="100" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
+    <div fxLayout="row wrap" style="width: 100%;" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
       <div fxLayout="column wrap" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
         <div fxLayout="row wrap" fxLayoutAlign="start strech" fxLayoutGap="10px" [fxShow]="true" [fxHide]="false">
           <div fxLayout="column wrap" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
          <div class="userList-title">
-         Category&apos;s List</div>
+         Brand&apos;s List</div>
           </div>
 
           <div fxLayout="column wrap" class="add-user" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
             <div (click)="navigateAdd()" style="cursor:pointer">
               <div fxLayout="row" fxLayoutAlign="center center">
-                <mat-icon aria-hidden="false">add</mat-icon> <span>Category</span>
+                <mat-icon aria-hidden="false">add</mat-icon> <span>Brand</span>
               </div>
 
             </div>
@@ -45,7 +20,7 @@
 
 
              <div fxLayout="column wrap"  class="refresh-user" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
-              <div (click)="getAllCategories()" style="cursor:pointer">
+              <div (click)="getAllBrands()" style="cursor:pointer">
                 <div fxLayout="row" fxLayoutAlign="center center">
                   <mat-icon aria-hidden="false">cached</mat-icon> <span>Refresh</span>
                 </div>
@@ -58,10 +33,10 @@
     </div>
 
 
-    <div fxLayout="row wrap"  style="padding-top:1em;" fxLayoutGap="10px" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
+    <div fxLayout="row wrap"  style="padding-top:1em;width: 100%;" fxLayoutGap="10px" fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
       <div fxLayout="column wrap"  class="formfileld" fxFlex="19"  fxLayoutAlign="start strech" [fxShow]="true" [fxHide]="false">
         <mat-form-field  [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-          <input matInput [(ngModel)]="CategoryName" placeholder="Search by username" (keyup.enter)= "search()" [required]="false">
+          <input matInput [(ngModel)]="BrandName" placeholder="Search by username" (keyup.enter)= "search()" [required]="false">
         </mat-form-field>
       </div>
 
@@ -101,34 +76,67 @@
 
 
 
-  <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
-    <div class="width100">
+  <div fxLayout="row wrap" style="width: 100%;"  fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+
       <div fxLayout="row" fxLayoutAlign="start center">
-        <span class="userLength"> {{categorylistLength}} </span> <span class="userLength-sub"> Users </span>
+        <span class="userLength"> {{BrandlistLength}} </span> <span class="userLength-sub"> Users </span>
       </div>
 
       <div class="mat-elevation-z8">
-         <table cdkDropList #table mat-table [dataSource]="dataSource" [cdkDropListData]="dataSource?.data" (cdkDropListDropped)="onListDrop($event)" matSort class="width100">
+         <table cdkDropList #table mat-table [dataSource]="dataSource" [cdkDropListData]="dataSource?.data"  matSort class="width100">
 
           <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Category Name </th>
-            <td mat-cell *matCellDef="let row" class="table-r-email pointer" (click)="navigate(row)"> {{row.name}} </td>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Brand Name </th>
+            <td mat-cell *matCellDef="let row" class="table-r-email pointer" > {{row.name}} </td>
           </ng-container>
 
           <ng-container matColumnDef="alias">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Category Alias </th>
-            <td mat-cell *matCellDef="let row" class="table-r-email pointer" (click)="navigate(row)"> {{row.alias}} </td>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Brand Alias </th>
+            <td mat-cell *matCellDef="let row" class="table-r-email pointer" > {{row.alias}} </td>
           </ng-container>
 
           <ng-container matColumnDef="enabled">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Enabled </th>
-            <td mat-cell *matCellDef="let row" class="table-r-email pointer" (click)="navigate(row)"> {{row.enabled}} </td>
+            <td mat-cell *matCellDef="let row"> <span [ngClass]="{&apos;active&apos;:row.enabled == true, &apos;in-active&apos;:row.enabled == false}" >{{row.enabled ? &quot;Active&quot; :  &quot;Inactive&quot;}}</span> </td>
           </ng-container>
 
 
           <ng-container matColumnDef="image">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Image</th>
-            <td mat-cell *matCellDef="let row" class="table-r-email pointer" (click)="navigate(row)"> <img [src]="row.image" class="imgdata"> </td>
+            <td mat-cell *matCellDef="let row" class="table-r-email pointer" > <img [src]="row.image" class="imgdata"> </td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
+            <td mat-cell *matCellDef="let row" class="table-r-email pointer" >
+
+              <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                  <mat-icon >delete</mat-icon>
+                  <span (click)="deleteBrand(row)">delete brand</span>
+                </button>
+                <button mat-menu-item>
+                  <mat-icon>edit</mat-icon>
+                  <span (click)="navigate(row)">Edit Brand</span>
+                </button>
+              </mat-menu>
+
+
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="categories">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Categories</th>
+            <td mat-cell *matCellDef="let row" class="table-r-email pointer">
+              <ng-container *ngFor="let category of row.categories;let isLast=last">
+                <span class="category"> {{category.name}}</span>&nbsp;
+                {{isLast ? '' : ' , '}}
+            </ng-container>
+            </td>
           </ng-container>
 
 
@@ -141,14 +149,15 @@
           </tr>
         </table>
         <mat-paginator [pageSize]="pageSize" (page)="onchangePagesize($event.pageSize)" [pageSizeOptions]="[10, 20, 30]" showFirstLastButtons ></mat-paginator>
-      </div>
     </div>
   </div>
 
+  <hr>
 
-  <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"></div>
 
-</div>
+
+
+
 </div>
 
 

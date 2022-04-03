@@ -320,9 +320,9 @@ $font-family: "Poppins", sans-serif;
   color: #ffffff;
 }
 
-.mat-form-field-wrapper {
- padding-bottom: 0em;
-}
+// .mat-form-field-wrapper {
+//  padding-bottom: 0em;
+// }
 
 //toggle button css
 .switch {
@@ -435,19 +435,32 @@ input:checked + .slider:before {
   padding: 0.5em 1em;
 
 }
-// .formfileld.mat-form-field-appearance-outline .mat-form-field-flex {
-//   padding: 0em 0em 0em 1em !important;
 
-// }
-
-// .formfileld .mat-form-field-appearance-outline .mat-form-field-infix {
-//   padding: 0.7em 0 0.7em 0;
-// }
-
-
-.mat-form-field-flex>.mat-form-field-infix {
-  padding: 0.4em 0!important;
+.width100{
+  width: 100%;
 }
+.formfileld.mat-form-field-appearance-outline .mat-form-field-flex {
+  padding: 0em 0em 0em 1em !important;
+
+}
+
+.formfileld .mat-form-field-appearance-outline .mat-form-field-infix {
+  padding: 0.7em 0 0.7em 0;
+}
+
+
+.colmn .mat-form-field-appearance-outline .mat-form-field-infix {
+   padding: 0.5em 0 0.5em 0 !important;
+}
+
+.colmn input.mat-input-element {
+  margin-top: 0.5em;
+}
+
+
+// .mat-form-field-flex>.mat-form-field-infix {
+//   padding: 0.4em 0!important;
+// }
 .success_btn {
   background-color: #6cb33f;
   color: white;
@@ -485,6 +498,25 @@ input:checked + .slider:before {
 .backdropBackground {
   background-color: rgb(55, 58, 71) !important;
   opacity: 0.9 !important;
+}
+
+.form .mat-form-field-wrapper {
+  padding-bottom: 0.1em;
+}
+
+
+.form  mat-form-field-appearance-outline .mat-form-field-wrapper {
+   margin: 0.05em 0 !important
+}
+
+.mat .mat-raised-button{
+  padding: 0 7px !important;
+
+ }
+
+ .colmn .mat-form-field-infix {
+  padding: 0.5em 0;
+   border-top: 0em solid transparent !important;
 }
 
 

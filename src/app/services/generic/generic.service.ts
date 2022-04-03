@@ -16,6 +16,7 @@ export class GenericService {
   public shippingPay:any;
   public billingPay:any;
   public categoryList:any;
+  public Brandlist:any;
 
   constructor() { }
 }

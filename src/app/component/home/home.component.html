@@ -49,6 +49,15 @@
       </div>
 
 
+      <div fxLayout="row wrap" class="pointer" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" (click)="activeLink(&apos;brandlist&apos;)" [ngClass]="{&apos;active-side-navlist&apos;:genService.activeTab === &apos;brandlist&apos;}" >
+        <div fxLayout="column wrap" fxFlex="{{expandNav ? 100 : 12}}" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false">
+        <mat-icon class="dash-icons">widgets</mat-icon>
+        </div>
+        <div fxLayout="column wrap" class="side-nav-label-name" fxFlex="76" fxLayoutAlign="center start" [fxShow]="true" [fxHide]="expandNav"><span>
+        Brand List</span></div>
+      </div>
+
+
 
 
 
